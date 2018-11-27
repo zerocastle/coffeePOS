@@ -10,11 +10,13 @@
 	content="width = device-width, initial-scale = 1.0">
 <link href="css/bootstrap-responsive.css" rel="stylesheet">
 <link href="css/login.css" rel="stylesheet">
+<!--  link rel="stylesheet" href="css/ysFont.css"-->
 <!-- Bootstrap -->
 <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="js/eLogin.js" charset="UTF-8"></script>
+<script src="js/category.js" charset="UTF-8"></script>
 <!--  style src="mcss/login.css"></style-->
 
 <style>
@@ -38,13 +40,6 @@ html, body {
 	text-shadow: black 0.2em 0.2em 0.2em;
 }
 
-#categoly {
-	float: left;
-	width: 10%;
-	height: 80%;
-	text-align: left;
-}
-
 .box {
 	float: left;
 	border: 2px solid brown;
@@ -66,6 +61,36 @@ html, body {
 
 #inline>.box:hover {
 	color: violet;
+}
+
+#category {
+	float: left;
+	width: 10%;
+	height: 70%;
+	text-align: left;
+	/*일딴 색깔 칠하고 나중에 촌스러우니깐 지우자*/
+	background-color: skyblue;
+}
+
+footer {
+	width: 100%;
+	height: 30%;
+	clear: both;
+	padding-top: 20px;
+}
+
+#product {
+	width: 40%;
+	heigth: 70%;
+	float: left;
+	background-color: linen;
+}
+
+#counter {
+	float: left;
+	width: 50%;
+	height: 70%;
+	background-color: pink;
 }
 </style>
 
@@ -108,7 +133,7 @@ html, body {
 					<!--로그인 ajax로 처리 보낼부분 -->
 					<div class="input-group input-group-lg">
 						<span class="input-group-addon"><i class="fa fa-user"></i></span>
-						<input type="text" class="form-control" placeholder="ID" id="eId">
+						<input type="text" class="form-control" placeholder="사번" id="eId">
 					</div>
 
 					<div class="input-group input-group-lg">
@@ -156,6 +181,8 @@ html, body {
 					<div>
 						<h4>
 							<span style="color: brown"> ${sessionScope.loginSession}</span>&nbsp반갑습니다.
+							<span><button id="logout" type="button"
+									class="btn btn-mini">로그아웃</button></span>
 						</h4>
 					</div>
 				</div>
@@ -176,18 +203,42 @@ html, body {
 				</div>
 			</div>
 		</div>
-		<nav id="categoly">
+		<nav id="category">
 			<ul class="nav nav-tabs nav-stacked">
-				<li><a href="coffee">COFFEE</a></li>
-				<li><a href="coffee">TEA</a></li>
-				<li><a href="coffee">BREAD</a></li>
+				<li><a href="#">COFFEE</a></li>
+				<li><a href="#">TEA</a></li>
+				<li><a href="#">BREAD</a></li>
 			</ul>
 		</nav>
-	</c:if>
+		<!-- 여기 상품 화면 보이는 부분 -->
+		<div id="product">
+			<div id="coffee"><jsp:include page="productList/coffee.jsp" /></div>
+			<div id="tea" style="display: none"><jsp:include
+					page="productList/tea.jsp" /></div>
+			<div id="bread" style="display: none"><jsp:include
+					page="productList/bread.jsp" /></div>
+		</div>
+		<!-- 카운터 영역 -->
+		<div id="counter">
+			<div><jsp:include page="ele/counterView.jsp" /></div>
+		</div>
 
+	</c:if>
+	<!-- 권한으로 할지 생각좀 해조자 이건 -->
 	<c:if test="${!empty sessionScope.loginSession2 }">
 		<div>여기는 관리자 페이지 입니다.</div>
 	</c:if>
+
+
+	<!-- coy right -->
+	<footer class="container-fluid">
+		<p class="text-center" id="introduce" style>HAKA</p>
+		<p class="text-center">품격 있는 맛 최상의 서비스</p>
+		<p class="text-center">
+			<strong>&copy; 2018 YS.com All rights reserved.</strong>
+		</p>
+
+	</footer>
 
 
 </body>

@@ -1,0 +1,33 @@
+디비 테이블 만들기
+//DBMS : mariaDB   디비이름 : coffee   비밀번호 : 123456
+
+
+
+//직원 테이블 생성
+create table coffee.employee(
+	eNum varchar(12) primary key,
+	ePhone varchar(12) ,
+	eName varchar(12),
+	ePqy int(7),
+	ePart varchar(4)
+	);
+
+폴더 구조 
+webContent
+	css // 우리가 사용할 css 넣는 공간
+	images // 이미지 넣는 공간
+	clt // 고객 뷰폴더 
+	mng // 관리자 뷰 폴더
+	ele // 사원 뷰 폴더 
+	js // 우리가 사용할 js 파일 공간 //category.js(카테고리고 관련 이벤트) //eLogin.js(로그인에 관련된 js)
+	ajaxCome // ajax 처리하는 페이지
+	property // 명령어 처리 모음집
+	upload //파일 받아오는거
+	
+
+
+java Resources
+	coffee.bean // 디비에 맞춘 dataBean(이녀석이 process 부분) 디비 이름대로 딴 클래스 이름이 (bean)
+	coffee.command.inter // 최상위 interface 가들어가는 패키지
+	coffee.command // 서블릿에서 분기해서 명령어대로 처리하는 자바 패키지
+	coffee.controller // 서블릿 들어가는 패키지

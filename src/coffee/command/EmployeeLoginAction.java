@@ -1,12 +1,7 @@
 package coffee.command;
 
-import java.io.PrintWriter;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
 
 import coffee.bean.EmployeeDataBean;
 import coffee.commad.inter.CommandProcess;

@@ -17,10 +17,3 @@ html, body {
 	box-shadow: grey 0.2em 0.2em 0.2em;
 	text-shadow: black 0.2em 0.2em 0.2em;
 }
-
-#categoly {
-	float: left;
-	width: 10%;
-	height: 80%;
-	text-align: left;
-}
