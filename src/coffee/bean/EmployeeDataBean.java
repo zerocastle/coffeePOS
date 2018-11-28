@@ -30,7 +30,7 @@ public class EmployeeDataBean {
 		return ds.getConnection();
 	}
 
-	public int userCkeck(String eNum, String ePhone) {
+	public int userCheck(String eNum, String ePhone) {
 		// TODO Auto-generated method stub
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -42,13 +42,13 @@ public class EmployeeDataBean {
 			pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, eNum);
 			rs = pstmt.executeQuery();
-			if(rs.next()) {
+			if (rs.next()) {
 				String dbePhone = rs.getString("ePhone");
-				if(dbePhone.equals(ePhone)) {
+				if (dbePhone.equals(ePhone)) {
 					x = 1; // 로그인성공
-				}else
-					x = -1; //로그인 실패
-			}else
+				} else
+					x = -1; // 로그인 실패
+			} else
 				x = 0; // 그런회원 없음
 
 		} catch (Exception e) {

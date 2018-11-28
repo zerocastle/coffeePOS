@@ -18,7 +18,7 @@ public class EmployeeLoginAction implements CommandProcess {
 		
 		System.out.println("들어온 아이디는 " + id);
 		EmployeeDataBean employee = EmployeeDataBean.getINSTANCE();
-		int loginType = employee.userCkeck(id, pw);
+		int loginType = employee.userCheck(id, pw);
 		if(loginType == 1) {
 			request.getSession().setAttribute("loginSession", id);
 			request.setAttribute("loginType",1);
