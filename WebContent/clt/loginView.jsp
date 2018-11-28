@@ -1,9 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<title>Login V16</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
@@ -11,9 +13,9 @@
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="../vendor/bootstrap/css/bootstrap.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="../fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<!--  link rel="stylesheet" type="text/css" href="../fonts/font-awesome-4.7.0/css/font-awesome.min.css"-->
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="../fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+	<!--  link rel="stylesheet" type="text/css" href="../fonts/Linearicons-Free-v1.0.0/icon-font.min.css"-->
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="../vendor/animate/animate.css">
 <!--===============================================================================================-->	
@@ -42,12 +44,12 @@
 
 					<div class="wrap-input100 validate-input" data-validate = "Enter username">
 						<input id="cId" class="input100" type="text" name="username" placeholder="User ID">
-						<span class="focus-input100" data-placeholder="&#xe80f;"></span>
+						<span class="focus-input100"></span>
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate="Enter password">
 						<input id="cPw" class="input100" type="password" name="pass" placeholder="phoneNumber">
-						<span class="focus-input100" data-placeholder="&#xe80f;"></span>
+						<span class="focus-input100"></span>
 					</div>
 
 					<div class="container-login100-form-btn m-t-32">

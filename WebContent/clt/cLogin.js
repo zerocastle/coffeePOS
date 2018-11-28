@@ -3,11 +3,12 @@
  */
 
 $(document).ready(function() {
-	var query = {
-		id : $('#cId').val(),
-		pw : $('#cPw').val()
-	}
+	
 	$('#cltLogin').click(function() {
+		var query = {
+				id : $('#cId').val(),
+				pw : $('#cPw').val()
+			};
 		alert("눌러짐?")
 		$.ajax({
 			type : "POST",
@@ -15,6 +16,7 @@ $(document).ready(function() {
 			data : query,
 			success : function(data) {
 				console.log(data);
+				alert(data)
 				if (data == 1) {
 					alert("로그인성공");
 					// locaiton.href="../index.jsp";

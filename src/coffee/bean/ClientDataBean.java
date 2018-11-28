@@ -43,7 +43,7 @@ public class ClientDataBean {
 			pstmt.setString(1, cId);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
-				String dbePhone = rs.getString("ePhone");
+				String dbePhone = rs.getString("cPhone");
 				if (dbePhone.equals(cPhone)) {
 					x = 1; // 로그인성공
 				} else
