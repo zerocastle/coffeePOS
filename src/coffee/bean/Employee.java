@@ -9,7 +9,15 @@ public class Employee {
 	private String ePhone;
 	private String eName;
 	private int ePay;
-	private String ePart;
+	private String rank; // 관리자를 구분하기 위한 0 ,1
+
+	public String getRank() {
+		return rank;
+	}
+
+	public void setRank(String rank) {
+		this.rank = rank;
+	}
 
 	public Employee() {
 		// TODO Auto-generated constructor stub
@@ -45,14 +53,6 @@ public class Employee {
 
 	public void setePay(int ePay) {
 		this.ePay = ePay;
-	}
-
-	public String getePart() {
-		return ePart;
-	}
-
-	public void setePart(String ePart) {
-		this.ePart = ePart;
 	}
 
 }

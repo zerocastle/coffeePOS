@@ -5,12 +5,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import coffee.commad.inter.CommandProcess;
 
-public class RedirectCharView implements CommandProcess{
+public class RedirectLoginView implements CommandProcess{
 
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 		// TODO Auto-generated method stub
-		return "/clt/clientChartView.jsp";
+		return "/clt/loginView.jsp";
 	}
 
 }

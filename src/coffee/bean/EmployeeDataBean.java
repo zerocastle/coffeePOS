@@ -44,7 +44,8 @@ public class EmployeeDataBean {
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
 				String dbePhone = rs.getString("ePhone");
-				if (dbePhone.equals(ePhone)) {
+				String rank = rs.getString("rank");
+				if (dbePhone.equals(ePhone) &&(rank.equals("0"))) {
 					x = 1; // 로그인성공
 				} else
 					x = -1; // 로그인 실패
@@ -68,5 +69,49 @@ public class EmployeeDataBean {
 		}
 		return x;
 	}
+	// 관리자 로그인
+	public int managerCheck(String eNum , String ePhone) {
+		// TODO Auto-generated method stub
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int x = -1;
+		String query = "select * from employee where eNum = ?";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, eNum);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				String dbePhone = rs.getString("ePhone");
+				String rank = rs.getString("rank");
+				if (dbePhone.equals(ePhone) &&(rank.equals("1"))) {
+					x = 1; // 로그인성공
+				} else
+					x = -1; // 로그인 실패
+			} else
+				x = 0; // 그런회원 없음
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (conn != null) {
+					conn.close();
+				}
+				if (pstmt != null)
+					pstmt.close();
+				if (rs != null)
+					rs.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return x;
+
+	}
+	
+	
 
 }

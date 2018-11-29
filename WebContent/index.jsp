@@ -110,7 +110,7 @@ footer {
 </head>
 <body>
 	<c:if
-		test="${empty sessionScope.loginSession || sessionScope.loginSession2}">
+		test="${(empty sessionScope.loginSession) and (empty sessionScope.loginSession2)}">
 		<!-- 단순 이미지 -->
 		<div align="center">
 			<img src="images/login_coffee01.jpg" alt="커피사진" width="450"
@@ -153,6 +153,12 @@ footer {
 					<h2>Sign in</h2>
 
 					<!--로그인 ajax로 처리 보낼부분 -->
+					<div class="input-group input-group-lg">
+						<span class="input-group-addon"><i class="fa fa-user"></i></span>
+						<input type="text" class="form-control" placeholder="관리자번호"
+							id="mId">
+					</div>
+
 
 					<div class="input-group input-group-lg">
 						<span class="input-group-addon"><i class="fa fa-lock"></i></span>

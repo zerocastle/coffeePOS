@@ -18,12 +18,12 @@ public class EmployeeLoginAction implements CommandProcess {
 		
 		System.out.println("들어온 아이디는 " + id);
 		EmployeeDataBean employee = EmployeeDataBean.getINSTANCE();
-		int loginType = employee.userCheck(id, pw);
-		if(loginType == 1) {
+		int result = employee.userCheck(id, pw);
+		if(result == 1) {
 			request.getSession().setAttribute("loginSession", id);
 			request.setAttribute("loginType",1);
 		}
-		System.out.println("loginType : " + loginType);
+		System.out.println("loginType : " + result);
 		
 
 		return "/ajaxCome/test.jsp"; //일딴 이 자식은 이렇게 넘기자 

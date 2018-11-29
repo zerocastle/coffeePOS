@@ -71,17 +71,21 @@ public class Controller extends HttpServlet {
 		Iterator<?> keyIter = pr.keySet().iterator();
 		while (keyIter.hasNext()) {
 			String command = (String) keyIter.next();
+			System.out.println("init" + command);
 			String className = pr.getProperty(command);
 			try {
 				Class<?> commandClass = Class.forName(className);
 				Object commandInstance = commandClass.newInstance();
 				commandMap.put(command, commandInstance);
 			} catch (ClassNotFoundException e) {
-				throw new ServletException();
+				//throw new ServletException();
+				e.printStackTrace();
 			} catch (InstantiationException e) {
-				throw new ServletException();
+				//throw new ServletException();
+				e.printStackTrace();
 			} catch (IllegalAccessException e) {
-				throw new ServletException();
+				//throw new ServletException();
+				e.printStackTrace();
 			}
 		}
 
@@ -118,7 +122,7 @@ public class Controller extends HttpServlet {
 
 		try {
 			String command = request.getRequestURI();
-			System.out.println(command);
+			System.out.println("command: "+command);
 			if (command.indexOf(request.getContextPath()) == 0)
 				command = command.substring(request.getContextPath().length());
 			com = (CommandProcess) commandMap.get(command);
