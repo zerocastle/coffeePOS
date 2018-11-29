@@ -33,5 +33,9 @@ $(document).ready(function() {
 			}
 		})
 	})
+	//사원이 고객 관리를 눌렀을떄
+	$('#menuList>div>div>ul li:eq(0)>a').click(function(){
+		window.location.href="mng/mangerEmployeeView.jsp";
+	})
 
 })

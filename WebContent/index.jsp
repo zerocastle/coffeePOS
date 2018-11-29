@@ -194,7 +194,7 @@ footer {
 				</div>
 			</div>
 		</div>
-		<div class="container-fluid">
+		<div class="container-fluid" id="menuList">
 			<div class="navbar navbar-inverse">
 				<div class="navbar-inner">
 					<a class="brand" href="#">HOME</a>
