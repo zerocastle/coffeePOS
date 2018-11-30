@@ -54,7 +54,7 @@ tbody tr:nth-child(2n-1) {
 
 </head>
 <body>
-	<c:if test="${!empty sessionScope.loginSession }">
+	<!--  c:if test="${!empty sessionScope.loginSession }"-->
 		<div class="container-fluid" id="head">
 			<div class="row-fluid">
 				<div class="span2">
@@ -103,9 +103,18 @@ tbody tr:nth-child(2n-1) {
 					<th>결제금액</th>
 					<th>적립금</th>
 				</tr>
-				<c:forEach items="${requestScope.list}" var="item">
 
+				<c:forEach items="${requestScope.list}" var="item">
+					<tr>
+						<td>${item.number}</td>
+						<td>${itme.cId}</td>
+						<td>${itme.cPhone}</td>
+						<td>${item.cName }</td>
+						<td>${itme.point}</td>
+						<td>${itme.totalPoint}</td>
+					</tr>
 				</c:forEach>
+
 				<tr>
 					<td align="center"><label class="checkbox inline"> <input
 							type="checkbox" id="inlineCheckbox1" value="option1">
@@ -117,40 +126,9 @@ tbody tr:nth-child(2n-1) {
 					<td></td>
 					<td></td>
 				</tr>
-				<tr>
-					<td align="center"><label class="checkbox inline"> <input
-							type="checkbox" id="inlineCheckbox2" value="option2">
-					</label></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td align="center"><label class="checkbox inline"> <input
-							type="checkbox" id="inlineCheckbox2" value="option2">
-					</label></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td align="center"><label class="checkbox inline"> <input
-							type="checkbox" id="inlineCheckbox2" value="option2">
-					</label></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
 			</table>
+
+			<!-- 패이징 -->
 			<ul id="list" style="text-align: center">
 				<li><a href="#">1</a></li>
 				<li><a href="#">2</a></li>
@@ -174,6 +152,6 @@ tbody tr:nth-child(2n-1) {
 				</select>
 
 			</div>
-	</c:if>
+	<%-- </c:if> --%>
 </body>
 </html>

@@ -46,7 +46,7 @@ public class Controller extends HttpServlet {
 		String props = config.getInitParameter("propertyConfig");
 		String realFolder = "/property";
 
-		ServletContext context = config.getServletContext(); // ���� �� ���ø����̼ǿ� ��θ� ��� ����
+		ServletContext context = config.getServletContext(); // 
 		String realPath = context.getRealPath(realFolder) + "\\" + props;
 
 		Properties pr = new Properties();

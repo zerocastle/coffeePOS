@@ -2,10 +2,11 @@ package coffee.bean;
 
 public class Client {
 
-	public String cId;
-	public String cPhone;
-	public String cName;
-	public int cPoint;
+	private String cId;
+	private String cPhone;
+	private String cName;
+	private int cPoint;
+	private int totalPoint;
 
 	public Client() {
 		// TODO Auto-generated constructor stub
@@ -41,6 +42,14 @@ public class Client {
 
 	public void setcPoint(int cPoint) {
 		this.cPoint = cPoint;
+	}
+
+	public int getTotalPoint() {
+		return totalPoint;
+	}
+
+	public void setTotalPoint(int totalPoint) {
+		this.totalPoint = totalPoint;
 	}
 
 }

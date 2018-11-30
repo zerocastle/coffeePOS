@@ -3,6 +3,7 @@ package coffee.bean;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -67,6 +68,57 @@ public class ClientDataBean {
 			}
 		}
 		return x;
+	}
+
+	public ArrayList<Client> clientList() {
+		// TODO Auto-generated method stub
+		int counter = 1; // 일딴 보류
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String query = "select * from client";
+		ArrayList<Client> client = new ArrayList<Client>();
+		Client object = null;
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(query);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				object = new Client();
+				String cId = rs.getString("cId");
+				String cPhone = rs.getString("cPhone");
+				String cName = rs.getString("cName");
+				int point = rs.getInt("point");
+				int totalPoint = rs.getInt("totalPoint");
+
+				object.setcId(cId);
+				object.setcPhone(cPhone);
+				object.setcName(cName);
+				object.setcPoint(point);
+				object.setTotalPoint(totalPoint);
+
+				client.add(object);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		finally {
+			try {
+				if (conn != null) {
+					conn.close();
+				}
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				if (rs != null) {
+					rs.close();
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return client;
 	}
 
 }

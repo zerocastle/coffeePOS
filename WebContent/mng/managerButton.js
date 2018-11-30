@@ -25,6 +25,6 @@ $.get('data/list.json', function(data) {
 $(document).ready(function(){
 	$('#refresh').click(function(){
 		alert("눌러지니?");
-		
+		window.location.href="/coffeePOS/mng/employeeList.do";
 	})
 })
