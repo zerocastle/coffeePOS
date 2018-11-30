@@ -1,0 +1,11 @@
+{
+    "employee":[
+        {
+            "cId":"kys",
+            "cPhone":"29345593",
+            "cName":"kys",
+            "point":"200",
+            "totalPoint":"2000"    
+        }
+    ]
+}

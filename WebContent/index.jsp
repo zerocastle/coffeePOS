@@ -186,7 +186,7 @@ footer {
 				<div class="container span4 offset1" class="box">
 					<div>
 						<h4>
-							<span style="color: brown"> ${sessionScope.loginSession}</span>&nbsp반갑습니다.
+							<span style="color: brown"><span id="resultStr"></span> ${sessionScope.loginSession}</span>&nbsp반갑습니다.
 							<span><button id="logout" type="button"
 									class="btn btn-mini">로그아웃</button></span>
 						</h4>

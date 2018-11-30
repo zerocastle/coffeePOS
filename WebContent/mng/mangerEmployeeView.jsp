@@ -6,13 +6,16 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="managerButton.js"></script>
+
 <link href="../css/bootstrap-responsive.css" rel="stylesheet">
 <link href="../css/login.css" rel="stylesheet">
 <!--  link rel="stylesheet" href="css/ysFont.css"-->
 <!-- Bootstrap -->
 <link href="../css/bootstrap.min.css" rel="stylesheet" media="screen">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 <style>
 table {
 	width: 100%;
@@ -48,6 +51,7 @@ tbody tr:nth-child(2n-1) {
 	background-color: #e8ebeb;
 }
 </style>
+
 </head>
 <body>
 	<c:if test="${!empty sessionScope.loginSession }">
@@ -64,7 +68,7 @@ tbody tr:nth-child(2n-1) {
 				<div class="container span4 offset1" class="box">
 					<div>
 						<h4>
-							<span style="color: brown"> ${sessionScope.loginSession2}</span>&nbsp반갑습니다.
+							<span style="color: brown"> ${sessionScope.loginSession}</span>&nbsp반갑습니다.
 							<span><button id="logout" type="button"
 									class="btn btn-mini">로그아웃</button></span>
 						</h4>
@@ -87,9 +91,9 @@ tbody tr:nth-child(2n-1) {
 					</div>
 				</div>
 			</div>
-
+			<!-- 본문 고객 리스트 -->
 			<table border="1" rules="rows" width="200" height="150"
-				align="center">
+				align="center" id="table">
 				<tr>
 					<th></th>
 					<th>순번</th>
@@ -99,49 +103,52 @@ tbody tr:nth-child(2n-1) {
 					<th>결제금액</th>
 					<th>적립금</th>
 				</tr>
+				<c:forEach items="${requestScope.list}" var="item">
+
+				</c:forEach>
 				<tr>
 					<td align="center"><label class="checkbox inline"> <input
 							type="checkbox" id="inlineCheckbox1" value="option1">
 					</label></td>
 					<td>1</td>
-					<td>코드</td>
-					<td>이름</td>
-					<td>010</td>
-					<td>1000</td>
-					<td>10</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
 				</tr>
 				<tr>
 					<td align="center"><label class="checkbox inline"> <input
 							type="checkbox" id="inlineCheckbox2" value="option2">
 					</label></td>
-					<td>2</td>
-					<td>코드</td>
-					<td>이름</td>
-					<td>010</td>
-					<td>1000</td>
-					<td>10</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
 				</tr>
 				<tr>
 					<td align="center"><label class="checkbox inline"> <input
 							type="checkbox" id="inlineCheckbox2" value="option2">
 					</label></td>
-					<td>3</td>
-					<td>코드</td>
-					<td>이름</td>
-					<td>010</td>
-					<td>1000</td>
-					<td>10</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
 				</tr>
 				<tr>
 					<td align="center"><label class="checkbox inline"> <input
 							type="checkbox" id="inlineCheckbox2" value="option2">
 					</label></td>
-					<td>4</td>
-					<td>코드</td>
-					<td>이름</td>
-					<td>010</td>
-					<td>1000</td>
-					<td>10</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
 				</tr>
 			</table>
 			<ul id="list" style="text-align: center">
@@ -149,9 +156,11 @@ tbody tr:nth-child(2n-1) {
 				<li><a href="#">2</a></li>
 				<li><a href="#">3</a></li>
 			</ul>
+			<!-- 버튼 -->
 			<div id="a" align="right">
-				<button type="submit" class="btn">등록</button>
-				<button type="submit" class="btn">취소</button>
+				<button type="submit" class="btn" id="refresh">조회</button>
+				<button type="submit" class="btn" id="employeeRegister">등록</button>
+				<button type="submit" class="btn" id="employeeDelete">삭제</button>
 			</div>
 			<div style="text-align: center">
 				<select>
