@@ -2,3 +2,4 @@
     pageEncoding="UTF-8"%>
 ${requestScope.loginType } 
 ${requestScope.ClientLoginACtion }
+${requestScope.insertMember}

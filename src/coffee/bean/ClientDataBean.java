@@ -69,7 +69,6 @@ public class ClientDataBean {
 		}
 		return x;
 	}
-
 	public ArrayList<Client> clientList() {
 		// TODO Auto-generated method stub
 		int counter = 1; // 일딴 보류
@@ -119,6 +118,46 @@ public class ClientDataBean {
 			}
 		}
 		return client;
+	}
+	
+	// 고객 등록
+	public int insertClient(String cId, String cPhone , String cName) {
+		// TODO Auto-generated method stub
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		int x = 0;
+
+		String query = "insert into client(cId,cPhone,cName) values(?,?,?)";
+
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, cId);
+			pstmt.setString(2, cPhone);
+			pstmt.setString(3, cName);
+			x = pstmt.executeUpdate();
+			if (x > 0) {
+				x = 1;
+			} else
+				x = 0;
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		finally {
+			try {
+				if (conn != null) {
+					conn.close();
+				}
+				if (pstmt != null) {
+					pstmt.close();
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return x;
 	}
 
 }
