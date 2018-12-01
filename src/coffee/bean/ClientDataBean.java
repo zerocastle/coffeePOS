@@ -88,7 +88,7 @@ public class ClientDataBean {
 				String cId = rs.getString("cId");
 				String cPhone = rs.getString("cPhone");
 				String cName = rs.getString("cName");
-				int point = rs.getInt("point");
+				int point = rs.getInt("cPoint");
 				int totalPoint = rs.getInt("totalPoint");
 
 				object.setcId(cId);
