@@ -101,7 +101,7 @@ tbody tr:nth-child(2n-1) {
 				align="center" id="table">
 				<tr>
 					<th></th>
-					<th></th>
+					<th>순번</th>
 					<th>사번</th>
 					<th>전화번호</th>
 					<th>이름</th>
