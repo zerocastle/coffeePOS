@@ -3,41 +3,131 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script type="text/javascript"
-	src="https://www.gstatic.com/charts/loader.js"></script>
-<script type="text/javascript">
-      google.charts.load('current', {'packages':['corechart']});
-      google.charts.setOnLoadCallback(drawChart);
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+/* h2 {
+	text-align: center;
+} */
+th {
+	background-color: #a0b5a2;
+}
 
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['월', '매출액'],
-          ['1',  1000],
-          ['2',  1170],
-          ['3',  660],
-          ['4',  1030],
-          ['5',  1030],
-          ['6',  1030],
-          ['7',  1030],
-          ['8',  1030],
-          ['9',  1030],
-          ['10',  1030],
-          ['11',  1030],
-          ['12',  100000],
-        ]);
+table, th, td {
+	text-align: center;
+	padding: 10px;
+	border-collapse: collapse;
+}
 
-        var options = {
-          title: '월별 매출액',
-          hAxis: {title: '월',  titleTextStyle: {color: '#333'}},
-          vAxis: {minValue: 0}
-        };
+td {
+	border-bottom: 1px solid #EAEAEA;
+}
 
-        var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
-        chart.draw(data, options);
-      }
-    </script>
+table {
+	table-layout: fixed;
+	border-coollapse: collapse;
+	text-align: center;
+}
+
+/* table {
+	width: 500px;
+} */
+div {
+	max-height: 300px;
+	overflow-y: auto;
+	overflow-x: hidden;
+	width: 500px;
+}
+
+tbody tr:nth-child(2n) {
+	background-color: #fbfbfb;
+}
+</style>
 </head>
+<h2>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 님 <br>사용가능 적립금 :
+</h2>
 <body>
-	<div id="chart_div" style="width: 100%; height: 500px;"></div>
+	<table width="500" height="50" border="1" rules="none">
+		<colgroup>
+
+			<col width="5%">
+			<col width="15%">
+			<col width="20%">
+			<col width="18%">
+			<col width="21%">
+		</colgroup>
+		<thead>
+			<tr>
+				<th></th>
+				<th>날짜</th>
+				<th>결제금액</th>
+				<th>적립금액</th>
+				<th>사용금액</th>
+			</tr>
+		</thead>
+	</table>
+	<div>
+		<table width="485" height="350" align="center" border="1" rules="none">
+			<colgroup>
+				<col width="5%">
+				<col width="18%">
+				<col width="20%">
+				<col width="20%">
+				<col width="20%">
+			</colgroup>
+			<tbody>
+				<tr>
+					<td></td>
+					<td>181129</td>
+					<td>1000</td>
+					<td>100</td>
+					<td>0</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td>1129</td>
+					<td>1000</td>
+					<td>100</td>
+					<td>0</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td>1129</td>
+					<td>1000</td>
+					<td>100</td>
+					<td>0</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td>1129</td>
+					<td>1000</td>
+					<td>100</td>
+					<td>0</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td>1129</td>
+					<td>1000</td>
+					<td>100</td>
+					<td>0</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td>1129</td>
+					<td>1000</td>
+					<td>100</td>
+					<td>0</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td>1129</td>
+					<td>1000</td>
+					<td>100</td>
+					<td>0</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
 </body>
 </html>
