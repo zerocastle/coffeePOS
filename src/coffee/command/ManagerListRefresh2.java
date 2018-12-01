@@ -35,7 +35,7 @@ public class ManagerListRefresh2 implements CommandProcess {
 		// 일딴 이걸로 바꾸자
 		request.setAttribute("clientList", client);
 		System.out.println("객체" + client);
-		return "/ele/mangerEmployeeView.jsp";
+		return "/ele/managerClientView.jsp";
 
 	}
 

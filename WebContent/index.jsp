@@ -17,6 +17,7 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="js/eLogin.js" charset="UTF-8"></script>
 <script src="js/category.js" charset="UTF-8"></script>
+<script src="js/movingContent.js" charset="UTF-8"></script>
 <!--  style src="mcss/login.css"></style-->
 
 <style>
@@ -197,7 +198,7 @@ footer {
 		<div class="container-fluid" id="menuList">
 			<div class="navbar navbar-inverse">
 				<div class="navbar-inner">
-					<a class="brand" href="#">HOME</a>
+					<a class="brand" href="#" id="home">HOME</a>
 					<div class="span4 offset7"></div>
 					<ul class="nav">
 						<li><a href="#">고객관리</a></li>
