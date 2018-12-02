@@ -187,9 +187,64 @@ footer {
 				<div class="container span4 offset1" class="box">
 					<div>
 						<h4>
-							<span style="color: brown"><span id="resultStr"></span> ${sessionScope.loginSession}</span>&nbsp반갑습니다.
-							<span><button id="logout" type="button"
-									class="btn btn-mini">로그아웃</button></span>
+							<span style="color: brown"><span id="resultStr"></span>
+								${sessionScope.loginSession}</span>&nbsp반갑습니다. <span><button
+									id="logout" type="button" class="btn btn-mini">로그아웃</button></span>
+						</h4>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container-fluid" id="menuList">
+			<div class="navbar navbar-inverse">
+				<div class="navbar-inner">
+					<a class="brand" href="#" id="home">HOME</a>
+					<div class="span4 offset7"></div>
+					<ul class="nav">
+						<li><a href="#">고객관리</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<nav id="category">
+			<ul class="nav nav-tabs nav-stacked">
+				<li><a href="#">COFFEE</a></li>
+				<li><a href="#">TEA</a></li>
+				<li><a href="#">BREAD</a></li>
+			</ul>
+		</nav>
+		<!-- 여기 상품 화면 보이는 부분 -->
+		<div id="product">
+			<div id="coffee"><jsp:include page="productList/coffee.jsp" /></div>
+			<div id="tea" style="display: none"><jsp:include
+					page="productList/tea.jsp" /></div>
+			<div id="bread" style="display: none"><jsp:include
+					page="productList/bread.jsp" /></div>
+		</div>
+		<!-- 카운터 영역 -->
+		<div id="counter">
+			<div><jsp:include page="ele/counterView.jsp" /></div>
+		</div>
+
+	</c:if>
+	<!-- 권한으로 할지 생각좀 해조자 이건 -->
+	<c:if test="${!empty sessionScope.loginSession2 }">
+		<div class="container-fluid">
+			<div class="row-fluid">
+				<div class="span2">
+					<img src="images/brand.png" alt="" width="100" height="80">
+				</div>
+				<div class="container span2 offset3">
+					<h1 class="title" id="title">YS COFFEE</h1>
+				</div>
+				<div class="row span4 offset1"></div>
+				<!-- 공백  -->
+				<div class="container span4 offset1" class="box">
+					<div>
+						<h4>
+							<span style="color: brown"><span id="resultStr"></span>
+								${sessionScope.loginSession2}</span>&nbsp반갑습니다. <span><button
+									id="logout" type="button" class="btn btn-mini">로그아웃</button></span>
 						</h4>
 					</div>
 				</div>
@@ -229,11 +284,6 @@ footer {
 		<div id="counter">
 			<div><jsp:include page="ele/counterView.jsp" /></div>
 		</div>
-
-	</c:if>
-	<!-- 권한으로 할지 생각좀 해조자 이건 -->
-	<c:if test="${!empty sessionScope.loginSession2 }">
-		<div>여기는 관리자 페이지 입니다.</div>
 	</c:if>
 
 

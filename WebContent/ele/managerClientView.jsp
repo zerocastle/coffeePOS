@@ -54,7 +54,8 @@ tbody tr:nth-child(2n-1) {
 
 </head>
 <body>
-	<!--  c:if test="${!empty sessionScope.loginSession }"-->
+	<c:if
+		test="${!empty sessionScope.loginSession || !empty sessionScope.loginSession2 }">
 		<div class="container-fluid" id="head">
 			<div class="row-fluid">
 				<div class="span2">
@@ -68,14 +69,28 @@ tbody tr:nth-child(2n-1) {
 				<div class="container span4 offset1" class="box">
 					<div>
 						<h4>
-							<span style="color: brown"> ${sessionScope.loginSession}</span>&nbsp반갑습니다.
-							<span><button id="logout" type="button"
-									class="btn btn-mini">로그아웃</button></span>
+							<span style="color: brown"> ${sessionScope.loginSession}
+								${sessionScope.loginSession2 }</span>&nbsp반갑습니다. <span><button
+									id="logout" type="button" class="btn btn-mini">로그아웃</button></span>
 						</h4>
 					</div>
 				</div>
 			</div>
-
+		</div>
+		<c:if test="${!empty sessionScope.loginSession}">
+			<div class="container-fluid" id="menuList">
+				<div class="navbar navbar-inverse">
+					<div class="navbar-inner">
+						<a class="brand" href="#" id="home">HOME</a>
+						<div class="span4 offset7"></div>
+						<ul class="nav">
+							<li><a href="#">고객관리</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</c:if>
+		<c:if test="${!empty sessionScope.loginSession2}">
 			<div class="container-fluid" id="menuList">
 				<div class="navbar navbar-inverse">
 					<div class="navbar-inner">
@@ -91,19 +106,20 @@ tbody tr:nth-child(2n-1) {
 					</div>
 				</div>
 			</div>
-			<!-- 본문 고객 리스트 -->
-			<table border="1" rules="rows" width="200" height="150"
-				align="center" id="table">
-				<tr>
-					<th></th>
-					<th>순번</th>
-					<th>고객코드</th>
-					<th>이름</th>
-					<th>전화번호</th>
-					<th>결제금액</th>
-					<th>적립금</th>
-				</tr>
-				<h2 align="center">
+		</c:if>
+		<!-- 본문 고객 리스트 -->
+		<table border="1" rules="rows" width="200" height="150" align="center"
+			id="table">
+			<tr>
+				<th></th>
+				<th>순번</th>
+				<th>고객코드</th>
+				<th>이름</th>
+				<th>전화번호</th>
+				<th>결제금액</th>
+				<th>적립금</th>
+			</tr>
+			<h2 align="center">
 				<b>- 고객 리스트 -</b>
 			</h2>
 			<c:forEach items="${requestScope.clientList}" var="item">
@@ -122,32 +138,33 @@ tbody tr:nth-child(2n-1) {
 				</tr>
 
 			</c:forEach>
-			</table>
+		</table>
 
-			<!-- 패이징 -->
-			<ul id="list" style="text-align: center">
-				<li><a href="#">1</a></li>
-				<li><a href="#">2</a></li>
-				<li><a href="#">3</a></li>
-			</ul>
-			<!-- 버튼 -->
-			<div id="a" align="right">
-				<button type="submit" class="btn" id="refresh">조회</button>
-				<button type="submit" class="btn" id="clietRegister">등록</button>
-				<button type="submit" class="btn" id="clietDelete">삭제</button>
-			</div>
-			<div style="text-align: center">
-				<select>
-					<option>이름</option>
-					<option>전화번호</option>
+		<!-- 패이징 -->
+		<ul id="list" style="text-align: center">
+			<li><a href="#">1</a></li>
+			<li><a href="#">2</a></li>
+			<li><a href="#">3</a></li>
+		</ul>
+		<!-- 버튼 -->
+		<div id="a" align="right">
+			<button type="submit" class="btn" id="refresh">조회</button>
+			<button type="submit" class="btn" id="clietRegister">등록</button>
+			<button type="submit" class="btn" id="clietDelete">삭제</button>
+		</div>
+		<div style="text-align: center">
+			<select>
+				<option>이름</option>
+				<option>전화번호</option>
 
-					<form method="post" action="#">
-						<input type="text" class="input-medium search-query">
-						<button type="submit" class="btn">Search</button>
-					</form>
-				</select>
+				<form method="post" action="#">
+					<input type="text" class="input-medium search-query">
+					<button type="submit" class="btn">Search</button>
+				</form>
+			</select>
 
-			</div>
-	<%-- </c:if> --%>
+		</div>
+	</c:if>
+	>
 </body>
 </html>

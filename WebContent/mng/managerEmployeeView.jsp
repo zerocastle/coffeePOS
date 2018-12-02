@@ -58,7 +58,7 @@ tbody tr:nth-child(2n-1) {
 <body>
 	<div>직원관리 페이지</div>
 
-	<c:if test="${!empty sessionScope.loginSession}">
+	<c:if test="${!empty sessionScope.loginSession2}">
 		<div class="container-fluid">
 			<div class="row-fluid">
 				<div class="span2">

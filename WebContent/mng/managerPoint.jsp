@@ -22,7 +22,7 @@
 <body>
 포인트 퍼센트 관리
 
-<c:if test="${!empty sessionScope.loginSession}">
+<c:if test="${!empty sessionScope.loginSession2}">
 		<div class="container-fluid">
 			<div class="row-fluid">
 				<div class="span2">
