@@ -160,7 +160,7 @@ public class ClientDataBean {
 		}
 		return x;
 	}
-
+	// 고객 삭제
 	public int deleteMember(String cId) {
 		// TODO Auto-generated method stub
 		Connection conn = null;

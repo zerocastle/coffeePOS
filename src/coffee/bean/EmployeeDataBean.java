@@ -114,6 +114,7 @@ public class EmployeeDataBean {
 
 	}
 
+	// 사원 리스트
 	public ArrayList<Employee> employeeList() {
 		// TODO Auto-generated method stub
 		int counter = 1; // 일딴 보류
@@ -167,6 +168,85 @@ public class EmployeeDataBean {
 			}
 		}
 		return ele;
+	}
+
+	// 사원 등록
+	public int insertEmployee(String eNum, String ePhone, String eName, int ePay) {
+		// TODO Auto-generated method stub
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		int x = 0;
+		String defaultRank = "0";
+		String query = "insert into employee(eNum,ePhone,eName,ePay,rank) values(?,?,?,?,?)";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, eNum);
+			pstmt.setString(2, ePhone);
+			pstmt.setString(3, eName);
+			pstmt.setInt(4, ePay);
+			pstmt.setString(5, defaultRank);
+			x = pstmt.executeUpdate();
+			if (x > 0) {
+				x = 1;
+			} else
+				x = 0;
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		finally {
+			try {
+				if (conn != null) {
+					conn.close();
+				}
+				if (pstmt != null) {
+					pstmt.close();
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return x;
+
+	}
+
+	// 사원 삭제
+	public int deleteEmployee(String eNum) {
+		// TODO Auto-generated method stub
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		int x = 0;
+		String query = "delete from employee where eNum = ?";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, eNum);
+			x = pstmt.executeUpdate();
+			if (x > 0) {
+				x = 1;
+			} else
+				x = 0;
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		finally {
+			try {
+				if (conn != null) {
+					conn.close();
+				}
+				if (pstmt != null) {
+					pstmt.close();
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return x;
+
 	}
 
 }
