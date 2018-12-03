@@ -196,5 +196,32 @@ public class ClientDataBean {
 		return x;
 
 	}
+	
+	// 유저 있는지 확인
+	
+	public int clientUserCheck(String cId) {
+		// TODO Auto-generated method stub
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet set = null;
+		int x = -1;
+		String query = "select * from client where cId=?";
+		
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, cId);
+			set = pstmt.executeQuery();
+			if(set.next()) {
+				x = 1; //현제 아이디 값이 있음
+			}else
+				x = 0;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return x;
+
+	}
 
 }

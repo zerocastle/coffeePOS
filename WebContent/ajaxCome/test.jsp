@@ -5,3 +5,4 @@ ${requestScope.ClientLoginACtion }
 ${requestScope.insertMember}
 ${requestScope.deleteMember}
 ${requestScope.insertEmployee}
+${requestScope.clientUserCheck}

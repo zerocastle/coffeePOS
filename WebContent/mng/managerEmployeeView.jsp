@@ -13,6 +13,7 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="mngButton.js"></script>
 <script src="../js/movingContent.js" charset="UTF-8"></script>
+<script src="../js/category.js"></script>
 <link href="../css/bootstrap-responsive.css" rel="stylesheet">
 <link href="../css/login.css" rel="stylesheet">
 <!--  link rel="stylesheet" href="css/ysFont.css"-->

@@ -26,7 +26,7 @@ h1 {
 
 			<tr>
 				<td>아이디</td>
-				<td><input id="cId" name="id" type="text"></td>
+				<td><input id="cId" name="id" type="text"></td><td><button id="userCheck" value="유저확인">유저확인</button></td>
 			</tr>
 			<tr>
 				<td>전화번호</td>

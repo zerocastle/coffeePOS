@@ -29,7 +29,7 @@ $(document).ready(function() {
 			success : function(data) {
 
 				alert("로그 아웃 하셨습니다.");
-				window.location.href = "index.jsp";
+				window.location.href = "/coffeePOS/index.jsp";
 			}
 		})
 	})

@@ -91,4 +91,25 @@ $(document).ready(
 							}
 						})
 					})
+
+			$('#userCheck').click(function() {
+				var query = {
+					id : $('#cId').val()
+				};
+
+				$.ajax({
+					type : "post",
+					url : "/coffeePOS/ele/clientCheck.do",
+					data : query,
+					success : function(data) {
+						if (data == 1) {
+							alert("사용 불가능한 아이디 입니다.");
+						} else if (data == 0) {
+							alert("사용 가능한 아이디 입니다.");
+
+						}
+					}
+				})
+			})
+
 		})

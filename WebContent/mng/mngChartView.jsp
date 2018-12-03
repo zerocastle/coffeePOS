@@ -10,6 +10,7 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="eleButton.js"></script>
+<script src="../js/category.js"></script>
 <script src="../js/movingContent.js" charset="UTF-8"></script>
 <link href="../css/bootstrap-responsive.css" rel="stylesheet">
 <link href="../css/login.css" rel="stylesheet">
