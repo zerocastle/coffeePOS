@@ -161,16 +161,16 @@ public class ClientDataBean {
 		return x;
 	}
 	// 고객 삭제
-	public int deleteMember(String cId) {
+	public int deleteMember(String eNum) {
 		// TODO Auto-generated method stub
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		int x = 0;
-		String query = "delete from client where cId = ?";
+		String query = "delete from employee where eNum = ?";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(query);
-			pstmt.setString(1, cId);
+			pstmt.setString(1, eNum);
 			x = pstmt.executeUpdate();
 			if (x > 0) {
 				x = 1;

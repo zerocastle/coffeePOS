@@ -67,6 +67,8 @@ $(document).ready(
 								$('#wrapper').html(
 										"<div>" + array.name[1]
 												+ "님 삭제완료</div>");
+							}else if(array.name[0] == "0"){
+								alert("삭제 실패 !!");
 							}
 						}
 					})

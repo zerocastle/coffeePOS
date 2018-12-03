@@ -17,7 +17,7 @@ h1 {
 </style>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="eleButton.js" charset="UTF-8"></script>
+<script src="mngButton.js" charset="UTF-8"></script>
 </head>
 <body>
 	<div id="wrapper">
