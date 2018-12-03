@@ -150,7 +150,7 @@ tbody tr:nth-child(2n-1) {
 		<div id="a" align="right">
 			<button type="submit" class="btn" id="refresh">조회</button>
 			<button type="submit" class="btn" id="clietRegister">등록</button>
-			<button type="submit" class="btn" id="clietDelete">삭제</button>
+			<button type="submit" class="btn" id="clientDelete">삭제</button>
 		</div>
 		<div style="text-align: center">
 			<select>

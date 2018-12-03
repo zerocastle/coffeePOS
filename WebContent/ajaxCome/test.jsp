@@ -3,3 +3,4 @@
 ${requestScope.loginType } 
 ${requestScope.ClientLoginACtion }
 ${requestScope.insertMember}
+${requestScope.deleteMember}

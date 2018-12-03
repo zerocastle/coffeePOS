@@ -56,7 +56,6 @@ tbody tr:nth-child(2n-1) {
 </style>
 </head>
 <body>
-	<div>직원관리 페이지</div>
 
 	<c:if test="${!empty sessionScope.loginSession2}">
 		<div class="container-fluid">
@@ -73,7 +72,7 @@ tbody tr:nth-child(2n-1) {
 					<div>
 						<h4>
 							<span style="color: brown"><span id="resultStr"></span>
-								${sessionScope.loginSession}</span>&nbsp반갑습니다. <span><button
+								${sessionScope.loginSession2}</span>&nbsp반갑습니다. <span><button
 									id="logout" type="button" class="btn btn-mini">로그아웃</button></span>
 						</h4>
 					</div>

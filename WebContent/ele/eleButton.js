@@ -37,8 +37,8 @@ $(document).ready(
 					});
 			$('#clientDelete').click(
 					function() {
-						window = window.open("delete.jsp", "delete.jsp",
-								"width=300, height=360");
+						window = window.open("delete.jsp", "delete",
+								"width=400, height=450");
 					});
 
 			// 회원 가입
@@ -64,6 +64,29 @@ $(document).ready(
 									$('#wrapper').html(
 											"<div>" + array.name[1]
 													+ "님 가입완료</div>");
+								}
+							}
+						})
+					})
+
+			// 삭제
+			$('#deleteMember').click(
+					function() {
+						var query = {
+							id : $('#dId').val()
+						};
+
+						$.ajax({
+							type : "POST",
+							url : "/coffeePOS/ele/clientDelete.do",
+							data : query,
+							success : function(data) {
+								var array = JSON.parse(data);
+								if (array.name[0] == "1") {
+									alert(array.name[1] + "님 이 삭제 되었습니다.");
+									$('#wrapper').html(
+											"<div>" + array.name[1]
+													+ "님 삭제완료</div>");
 								}
 							}
 						})

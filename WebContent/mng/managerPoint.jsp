@@ -20,7 +20,6 @@
 <link href="../css/bootstrap.min.css" rel="stylesheet" media="screen">
 </head>
 <body>
-포인트 퍼센트 관리
 
 <c:if test="${!empty sessionScope.loginSession2}">
 		<div class="container-fluid">
@@ -36,7 +35,7 @@
 				<div class="container span4 offset1" class="box">
 					<div>
 						<h4>
-							<span style="color: brown"><span id="resultStr"></span> ${sessionScope.loginSession}</span>&nbsp반갑습니다.
+							<span style="color: brown"><span id="resultStr"></span> ${sessionScope.loginSession2}</span>&nbsp반갑습니다.
 							<span><button id="logout" type="button"
 									class="btn btn-mini">로그아웃</button></span>
 						</h4>

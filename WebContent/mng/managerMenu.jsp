@@ -11,17 +11,17 @@
 	content="width = device-width, initial-scale = 1.0">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="eleButton.js"></script>
+<script src="../ele/eleButton.js"></script>
 <script src="../js/movingContent.js" charset="UTF-8"></script>
 <link href="../css/bootstrap-responsive.css" rel="stylesheet">
 <link href="../css/login.css" rel="stylesheet">
 <!--  link rel="stylesheet" href="css/ysFont.css"-->
 <!-- Bootstrap -->
 <link href="../css/bootstrap.min.css" rel="stylesheet" media="screen">
+<link href="../css/pstyle.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-매뉴관리
-<c:if test="${!empty sessionScope.loginSession2}">
+	<c:if test="${!empty sessionScope.loginSession2}">
 		<div class="container-fluid">
 			<div class="row-fluid">
 				<div class="span2">
@@ -35,9 +35,9 @@
 				<div class="container span4 offset1" class="box">
 					<div>
 						<h4>
-							<span style="color: brown"><span id="resultStr"></span> ${sessionScope.loginSession}</span>&nbsp반갑습니다.
-							<span><button id="logout" type="button"
-									class="btn btn-mini">로그아웃</button></span>
+							<span style="color: brown"><span id="resultStr"></span>
+								${sessionScope.loginSession2}</span>&nbsp반갑습니다. <span><button
+									id="logout" type="button" class="btn btn-mini">로그아웃</button></span>
 						</h4>
 					</div>
 				</div>
@@ -58,6 +58,69 @@
 				</div>
 			</div>
 		</div>
-		</c:if>
+		
+		<!-- 여기서 부터 상품수정 -->
+			<div class="container">
+				<h1>Product information</h1>
+				<div class="stuff">
+					<div class="image">
+						<article>
+							<p id="status">File Upload</p>
+							<p>
+								<input type=file>
+							</p>
+							<div id="holder"></div>
+						</article>
+						<script>
+						/* 	var upload = document.getElementsByTagName('input')[0], holder = document
+									.getElementById('holder'), state = document
+									.getElementById('status');
+
+							if (typeof window.FileReader === 'undefined') {
+								state.className = 'fail';
+							} else {
+								state.className = 'success';
+								state.innerHTML = 'Product Image';
+							}
+
+							upload.onchange = function(e) {
+								e.preventDefault();
+
+								var file = upload.files[0], reader = new FileReader();
+								reader.onload = function(event) {
+									var img = new Image();
+									img.src = event.target.result;
+
+									if (img.width > 150) { // holder width
+										img.width = 150;
+									}
+									holder.innerHTML = '';
+									holder.appendChild(img);
+								};
+								reader.readAsDataURL(file);
+
+								return false;
+							}; */
+						</script>
+						<label class="label"></label> <label class="error"></label>
+					</div>
+					<div class="textBox">
+						<input class="text" type="textbox" placeholder="Product name"
+							onkeyup="this.setAttribute('value', this.value);" value="" /> <label
+							class="label">Product name</label> <label class="error"></label>
+					</div>
+					<div class="textBox">
+						<input class="text" type="text" placeholder="Price"
+							onkeyup="this.setAttribute('value', this.value);" value="" /> <label
+							class="label">Price</label>
+					</div>
+
+					<button class="button1">수정</button>
+
+					<button class="button2">취소</button>
+
+				</div>
+			</div>
+	</c:if>
 </body>
 </html>
