@@ -22,55 +22,78 @@ $(document).ready(
 
 			// 사원 등록
 
-			$('#registerSubmit').click(function() {
+			$('#registerSubmit').click(
+					function() {
+						var query = {
+							id : $('#eNum').val(),
+							pw : $('#ePhone').val(),
+							name : $('#eName').val(),
+							pay : $('#ePay').val()
+						};
+
+						$.ajax({
+
+							type : "POST",
+							url : "/coffeePOS/mng/employeeInsert.do",
+							data : query,
+							success : function(data) {
+								var array = JSON.parse(data);
+
+								if (array.name[0] == "1") {
+									alert(array.name[1] + "사원이 등록 되었습니다..");
+									$('#wrapper').html(
+											"<div>" + array.name[1]
+													+ "님 등록완료</div>");
+								}
+							}
+						})
+
+					})
+
+			// 사원 삭제
+
+			$('#deleteEmployee').click(
+					function() {
+						var query = {
+							id : $('#dId').val()
+						};
+
+						$.ajax({
+							type : "POST",
+							url : "/coffeePOS/mng/employeeDelete.do",
+							data : query,
+							success : function(data) {
+								var array = JSON.parse(data);
+								if (array.name[0] == "1") {
+									alert(array.name[1] + "님 이 삭제 되었습니다.");
+									$('#wrapper').html(
+											"<div>" + array.name[1]
+													+ "님 삭제완료</div>");
+								} else if (array.name[0] == "0") {
+									alert("삭제 실패 !!");
+								}
+							}
+						})
+					})
+
+			// 사원 체크
+			$('#userCheck').click(function() {
 				var query = {
-					id : $('#eNum').val(),
-					pw : $('#ePhone').val(),
-					name : $('#eName').val(),
-					pay : $('#ePay').val()
+					id : $('#eNum').val()
 				};
 
 				$.ajax({
-
-					type : "POST",
-					url : "/coffeePOS/mng/employeeInsert.do",
+					type : "post",
+					url : "/coffeePOS/mng/employeeCheck.do",
 					data : query,
 					success : function(data) {
-						var array = JSON.parse(data);
-						
-						if (array.name[0] == "1") {
-							alert(array.name[1] + "사원이 등록 되었습니다..");
-							$('#wrapper').html(
-									"<div>" + array.name[1]
-											+ "님 등록완료</div>");
+						if (data == 1) {
+							alert("사용 불가능한 아이디 입니다.");
+						} else if (data == 0) {
+							alert("사용 가능한 아이디 입니다.");
+
 						}
 					}
 				})
-
-			})
-			
-			//사원 삭제
-			
-			$('#deleteEmployee').click(function(){
-				var query = {
-						id : $('#dId').val()
-					};
-
-					$.ajax({
-						type : "POST",
-						url : "/coffeePOS/mng/employeeDelete.do",
-						data : query,
-						success : function(data) {
-							var array = JSON.parse(data);
-							if (array.name[0] == "1") {
-								alert(array.name[1] + "님 이 삭제 되었습니다.");
-								$('#wrapper').html(
-										"<div>" + array.name[1]
-												+ "님 삭제완료</div>");
-							}else if(array.name[0] == "0"){
-								alert("삭제 실패 !!");
-							}
-						}
-					})
 			})
 		})

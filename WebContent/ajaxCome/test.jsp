@@ -6,3 +6,4 @@ ${requestScope.insertMember}
 ${requestScope.deleteMember}
 ${requestScope.insertEmployee}
 ${requestScope.clientUserCheck}
+${requestScope.employeeUserCheck}

@@ -30,6 +30,7 @@ h1 {
 			<tr>
 				<td>사번</td>
 				<td><input id="eNum" name="id" type="text"></td>
+				<td><button value="아이디확인" id="userCheck">눌러주세요</button></td>
 			</tr>
 			<tr>
 				<td>전화번호</td>
@@ -51,4 +52,5 @@ h1 {
 					id="registerSubmit"> <input type="submit" value="취소"></td>
 			</tr>
 		</table>
-	</div></html>
+	</div>
+</html>

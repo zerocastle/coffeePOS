@@ -91,7 +91,7 @@ $(document).ready(
 							}
 						})
 					})
-
+					//클라이언트 체크
 			$('#userCheck').click(function() {
 				var query = {
 					id : $('#cId').val()

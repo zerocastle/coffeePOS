@@ -248,5 +248,32 @@ public class EmployeeDataBean {
 		return x;
 
 	}
+	
+	//사원 있는지 확인
+	public int employeeUserCheck(String eNum) {
+		// TODO Auto-generated method stub
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet set = null;
+		int x = -1;
+		System.out.println("enum" + eNum);
+		String query = "select * from employee where eNum=?";
+		
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, eNum);
+			set = pstmt.executeQuery();
+			if(set.next()) {
+				x = 1; //현제 아이디 값이 있음
+			}else
+				x = 0;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return x;
+
+	}
 
 }
