@@ -1,0 +1,310 @@
+html, body {
+	margin: 0;
+	padding: 0;
+	height: 100%
+}
+
+.main {
+	background-color: white;
+	width : 50%;
+	height: 70%;
+	/* border:1px black solid; */
+	/* position: relative;
+top:130px;  
+left:50px; */
+	display: inline-block;
+	margin-left: 50px;
+	color: #4C4C4C;
+}
+
+.a {
+	background-color: white;
+	width: 800px;
+	height: 500px;
+	border: 1px black solid;
+	margin: 0 auto;
+	margin-top: 10px;
+}
+
+.bcd {
+	width: 800px;
+	height: 330px;
+	/* border:1px black solid; */
+	margin-left: 10px;
+}
+
+.b {
+	background-color: white;
+	width: 300px;
+	height: 315px;
+	border: 1px black solid;
+	margin: 0px;
+	float: left;
+	position: relative;
+	top: 10px;
+	text-align: left;
+	font-size: 25px;
+}
+
+.c {
+	background-color: white;
+	width: 300px;
+	height: 315px;
+	border: 1px black solid;
+	display: inline-block;
+	position: relative;
+	top: -156px;
+	left: 10px;
+	font-size: 25px;
+}
+
+.d {
+	background-color: white;
+	width: 50px;
+	height: 50px;
+	margin: 0px;
+	display: inline-block;
+}
+
+.b-1 {
+	margin: 20px 10px;
+}
+
+.b-2 {
+	margin: 0px 10px;
+}
+
+.b-3 {
+	margin: 20px 10px;
+}
+
+.b-4 {
+	margin: 20px 10px;
+}
+
+.c-1 {
+	width: 50px;
+	height: 50px;
+	margin: 10px 10px;
+}
+
+.c-2 {
+	background-color: white;
+	width: 270px;
+	height: 150px;
+	border: 1px black solid;
+	position: relative;
+	top: 70px;
+	left: 15px;
+}
+
+.text1 {
+	width: 175px;
+	height: 30px;
+	margin-left: 1px;
+	margin-top: 10px;
+}
+
+.text2 {
+	width: 250px;
+	height: 40px;
+	margin-left: 10px;
+	margin-top: 10px;
+}
+
+.button1 { /* 결제 */
+	display: block;
+	width: 170px;
+	height: 150px;
+	border: 1px black solid;
+	margin: 15px auto;
+	background-color: rgb(255, 255, 255);
+	text-align: center;
+	font-family: 'Roboto', sans-serif;
+	position: relative;
+	top: -5px;
+	left: 20px;
+	font-size: 25px;
+}
+
+.button2 { /* 삭제 */
+	display: block;
+	width: 170px;
+	height: 150px;
+	border: 1px black solid;
+	margin: 15px auto;
+	background-color: rgb(255, 255, 255);
+	text-align: center;
+	font-family: 'Roboto', sans-serif;
+	position: relative;
+	top: -5px;
+	left: 20px;
+	font-size: 25px;
+}
+
+.button3 { /* 조회 */
+	display: block;
+	width: 100px;
+	height: 40px;
+	border: 1px black solid;
+	margin-top: 20px;
+	margin-left: 123px;
+	background-color: rgb(255, 255, 255);
+	text-align: center;
+	font-family: 'Roboto', sans-serif;
+	position: relative;
+	top: -10px;
+	left: 39px;
+}
+
+.button4 { /* 사용 */
+	display: block;
+	width: 70px;
+	height: 35px;
+	border: 1px black solid;
+	margin-top: 20px;
+	margin-left: 122px;
+	background-color: rgb(255, 255, 255);
+	text-align: center;
+	font-family: 'Roboto', sans-serif;
+	margin-top: -35px;
+	margin-left: 200px;
+	font-size: 15px;
+}
+
+body {
+	background: #f2f3f4;
+	font-family: 'Arial', sans-serif;
+	min-width: 320px;
+	font-size: 20px;
+}
+
+#cart_layout_1 img {
+	width: 125px;
+	height: 125px;
+	margin-left: 40px;
+}
+
+#cart_layout_1 span {
+	color: white;
+	margin-left: 60px;
+	text-align: center;
+}
+
+#cart_layout_1 tr span:last-child {
+	margin-left: 70px;
+	text-align: center;
+}
+
+#wrap {
+	width: 80%;
+	margin: 20px auto;
+}
+
+#cart_layout_1 {
+	color: #808080;
+}
+
+#cart_layout_1 table {
+	margin-top: 8px;
+	width: 400px;
+	height: 110px;
+	border: 1px black solid;
+}
+
+#cart_layout_1 tr td:first-child {
+	border-right: 2px solid #ccc;
+}
+
+#cart_layout_1 td {
+	vertical-align: middle;
+	width: 50%;
+}
+
+#cart_layout_1 .cart_info {
+	border-top: 2px solid #ccc;
+	width: 100%;
+	height: 140px;
+	max-height: 300px;
+	border-bottom: 2px solid #ccc;
+}
+
+#cart_layout_1 .cart_info .product {
+	display: block;
+	float: left;
+	width: 30%;
+	height: 50px;
+}
+
+#cart_layout_1 .cart_info .product img {
+	max-height: 270px;
+}
+
+#cart_layout_1 .cart_info .product_info {
+	display: block;
+	float: left;
+	width: 150px;
+	margin-left: 5%;
+	position: relative;
+	height: 100%;
+}
+
+#cart_layout_1 .cart_info .product_info span {
+	color: #292929;
+	display: block;
+	font-weight: 700;
+}
+
+.center {
+	height: 30%;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+}
+
+#cart_layout_1 .cart_info .details {
+	width: 50%;
+	margin-left: 5%;
+	float: left;
+	height: 100%;
+}
+
+#cart_layout_1 .cart_info .details .qty, #cart_layout_1 .cart_info .details .price,
+	#cart_layout_1 .cart_info .details .remove {
+	display: block;
+	position: relative;
+	height: 100%;
+	width: 150px;
+	float: left;
+	text-align: center;
+}
+
+#cart_layout_1 .cart_info .details .qty span {
+	font-size: 1.8em;
+	color: #292929;
+}
+
+#cart_layout_1 .cart_info .details .qty input {
+	width: 40px;
+	height: 40px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+}
+
+#cart_layout_1 .cart_info .details .price {
+	font-size: 1.8em;
+	color: #292929;
+	bottom: -10px;
+}
+
+#cart_layout_1 .cart_info .details .hidden {
+	display: none;
+}
+
+#cart_layout_1 .cart_info .details .remove {
+	font-size: 4.3em;
+	float: right;
+}

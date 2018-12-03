@@ -166,7 +166,7 @@ public class ClientDataBean {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		int x = 0;
-		String query = "delete from employee where cId = ?";
+		String query = "delete from client where cId = ?";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(query);

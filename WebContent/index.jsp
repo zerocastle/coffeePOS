@@ -91,7 +91,7 @@ footer {
 	float: left;
 	width: 50%;
 	height: 70%;
-	background-color: pink;
+	/* background-color: pink; */
 }
 </style>
 
