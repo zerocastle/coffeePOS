@@ -22,7 +22,9 @@
 //
 // }, 'json');
 $(document).ready(
+
 		function() {
+
 			var windo = null;
 			$('#refresh').click(function() {
 				window.location.href = "/coffeePOS/ele/clientList.do";
@@ -40,26 +42,30 @@ $(document).ready(
 					});
 
 			// 회원 가입
-			$('#registerSubmit').click(function() {
-				var query = {
-					id : $('#cId').val(),
-					pw : $('#cPhone').val(),
-					name : $('#cName').val()
-				};
-				$.ajax({
-					type : "POST",
-					url : "/coffeePOS/ele/clientInsert.do",
-					data : query,
-					success : function(data) {
-						var array = JSON.parse(data);
+			$('#registerSubmit').click(
+					function() {
+						var query = {
+							id : $('#cId').val(),
+							pw : $('#cPhone').val(),
+							name : $('#cName').val()
+						};
+						$.ajax({
+							type : "POST",
+							url : "/coffeePOS/ele/clientInsert.do",
+							data : query,
+							success : function(data) {
+								var array = JSON.parse(data);
 
-//						alert(array.name[0]); //파싱된 객체에 key값에 인덱스로 접근한다.
+								// alert(array.name[0]); //파싱된 객체에 key값에 인덱스로
+								// 접근한다.
 
-						if (array.name[0] == "1") {
-							alert(array.name[1] + "님 이 가입 되었습니다.");
-							$('#wrapper').html("<div>" + array.name[1] + "님 가입완료</div>");
-						}
-					}
-				})
-			})
+								if (array.name[0] == "1") {
+									alert(array.name[1] + "님 이 가입 되었습니다.");
+									$('#wrapper').html(
+											"<div>" + array.name[1]
+													+ "님 가입완료</div>");
+								}
+							}
+						})
+					})
 		})
