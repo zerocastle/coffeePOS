@@ -1,7 +1,7 @@
 /**
  * 
  */
-
+var state = false;
 $(document).ready(
 		function() {
 			var windo = null;
@@ -24,6 +24,7 @@ $(document).ready(
 
 			$('#registerSubmit').click(
 					function() {
+						if(state){
 						var query = {
 							id : $('#eNum').val(),
 							pw : $('#ePhone').val(),
@@ -47,6 +48,9 @@ $(document).ready(
 								}
 							}
 						})
+						}else{
+							alert("아이디 체크를 해주세요");
+						}
 
 					})
 
@@ -91,9 +95,13 @@ $(document).ready(
 							alert("사용 불가능한 아이디 입니다.");
 						} else if (data == 0) {
 							alert("사용 가능한 아이디 입니다.");
-
+							$('#registerSubmit').html('<button>확인완료</button>');
+							checkIt();
 						}
 					}
 				})
 			})
 		})
+		function checkIt() {
+	state = true;
+}

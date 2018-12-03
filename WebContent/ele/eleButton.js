@@ -21,6 +21,7 @@
 // }
 //
 // }, 'json');
+var state = false;
 $(document).ready(
 
 		function() {
@@ -44,29 +45,34 @@ $(document).ready(
 			// 회원 가입
 			$('#registerSubmit').click(
 					function() {
-						var query = {
-							id : $('#cId').val(),
-							pw : $('#cPhone').val(),
-							name : $('#cName').val()
-						};
-						$.ajax({
-							type : "POST",
-							url : "/coffeePOS/ele/clientInsert.do",
-							data : query,
-							success : function(data) {
-								var array = JSON.parse(data);
+						if (state) {
+							var query = {
+								id : $('#cId').val(),
+								pw : $('#cPhone').val(),
+								name : $('#cName').val()
+							};
+							$.ajax({
+								type : "POST",
+								url : "/coffeePOS/ele/clientInsert.do",
+								data : query,
+								success : function(data) {
+									var array = JSON.parse(data);
 
-								// alert(array.name[0]); //파싱된 객체에 key값에 인덱스로
-								// 접근한다.
+									// alert(array.name[0]); //파싱된 객체에 key값에
+									// 인덱스로
+									// 접근한다.
 
-								if (array.name[0] == "1") {
-									alert(array.name[1] + "님 이 가입 되었습니다.");
-									$('#wrapper').html(
-											"<div>" + array.name[1]
-													+ "님 가입완료</div>");
+									if (array.name[0] == "1") {
+										alert(array.name[1] + "님 이 가입 되었습니다.");
+										$('#wrapper').html(
+												"<div>" + array.name[1]
+														+ "님 가입완료</div>");
+									}
 								}
-							}
-						})
+							})
+						} else {
+							alert('아이디 중복체크를 하셔야 해요');
+						}
 					})
 
 			// 삭제
@@ -91,7 +97,7 @@ $(document).ready(
 							}
 						})
 					})
-					//클라이언트 체크
+			// 클라이언트 체크
 			$('#userCheck').click(function() {
 				var query = {
 					id : $('#cId').val()
@@ -104,12 +110,17 @@ $(document).ready(
 					success : function(data) {
 						if (data == 1) {
 							alert("사용 불가능한 아이디 입니다.");
+
 						} else if (data == 0) {
 							alert("사용 가능한 아이디 입니다.");
-
+							$('#userCheck').html('<button>확인완료</button>');
+							checkIt();
 						}
 					}
 				})
 			})
 
 		})
+function checkIt() {
+	state = true;
+}

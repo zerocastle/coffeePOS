@@ -33,13 +33,13 @@ CREATE TABLE `employee` (
 
 payment
 CREATE TABLE `payment` (
-	`pay_Code` VARCHAR(7) NOT NULL COLLATE 'utf8_general_ci',
+	`pay_Code` VARCHAR(7) NOT NULL,
 	`pay_Date` DATE NULL DEFAULT NULL,
 	`amont` INT(11) NULL DEFAULT NULL,
-	`pt_used` VARCHAR(6) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
-	`pay_amount` VARCHAR(6) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
-	`cId` VARCHAR(20) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
-	`eNum` VARCHAR(10) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
+	`pt_used` VARCHAR(6) NULL DEFAULT NULL,
+	`pay_amount` VARCHAR(6) NULL DEFAULT NULL,
+	`cId` VARCHAR(20) NULL DEFAULT NULL,
+	`eNum` VARCHAR(10) NULL DEFAULT NULL,
 	PRIMARY KEY (`pay_Code`),
 	INDEX `payment` (`cId`),
 	INDEX `payment1` (`eNum`),
