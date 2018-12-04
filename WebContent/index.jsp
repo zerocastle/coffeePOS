@@ -208,9 +208,9 @@ footer {
 		</div>
 		<nav id="category">
 			<ul class="nav nav-tabs nav-stacked">
-				<li><a href="#">COFFEE</a></li>
-				<li><a href="#">TEA</a></li>
-				<li><a href="#">BREAD</a></li>
+				<li><a href="#" id="coffeeButton">COFFEE</a></li>
+				<li><a href="#" id="teaButton">TEA</a></li>
+				<li><a href="#" id="breadButton">BREAD</a></li>
 			</ul>
 		</nav>
 		<!-- 여기 상품 화면 보이는 부분 -->

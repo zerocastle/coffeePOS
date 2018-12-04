@@ -9,6 +9,14 @@ $(document).ready(function() {
 		$('#coffee').show();
 		$('#tea').hide();
 		$('#bread').hide();
+		// 목록 session 처리
+		$.ajax({
+			type : "POST",
+			url : "/coffeePOS/coffee/getList.do",
+			success : function() {
+				window.location.href = "/coffeePOS/index.jsp";
+			}
+		})
 
 	})
 	$('#category>ul li:eq(1)>a').click(function() {
@@ -33,6 +41,5 @@ $(document).ready(function() {
 			}
 		})
 	})
-	
 
 })

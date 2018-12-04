@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,18 +10,12 @@
 	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"
 	rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="css/productList.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
-<body>
+<body id="onload">
 	<div id="left_main">
-		<table id="image_item" border="1">
-			<tr>
-				<td><img class='img' src="C:\Users\bon320-32\Desktop\2.jpg"
-					style="width: 200px; height: 200px;" /></td>
-				<td><img class='img' src="C:\Users\bon320-32\Desktop\2.jpg"
-					style="width: 200px; height: 200px;"></td>
-				<td><img class='img' src="C:\Users\bon320-32\Desktop\2.jpg"
-					style="width: 200px; height: 200px;" /></td>
-			</tr>
+		<table id="table-strip" border="1">
 			<tr align="center">
 				<td>아메리카노</td>
 				<td>카페라떼</td>
