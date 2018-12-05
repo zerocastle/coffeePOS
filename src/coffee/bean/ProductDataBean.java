@@ -84,5 +84,115 @@ public class ProductDataBean {
 		return productList;
 
 	}
+	
+	public ArrayList<Product> getBreadList() {
+		// TODO Auto-generated method stub
+
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		ArrayList<Product> productList = new ArrayList<Product>();
+		Product product = null;
+		String query = "select * from product where ct_code='br'";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(query);
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				product = new Product();
+				String pCode = rs.getString("pCode");
+				String pName = rs.getString("pName");
+				String pPath = rs.getString("pPath");
+				int pPrice = rs.getInt("pPrice");
+				String ct_code = rs.getString("ct_code");
+
+				product.setpCode(pCode);
+				product.setpName(pName);
+				product.setpPath(pPath);
+				product.setpPrice(pPrice);
+				product.setCt_code(ct_code);
+
+				productList.add(product);
+
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				if (conn != null) {
+					conn.close();
+				}
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				if (rs != null) {
+					rs.close();
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		System.out.println("프로덕 빵 리스트 :" + productList.toString() );
+		return productList;
+
+	}
+	
+	public ArrayList<Product> getTeaList() {
+		// TODO Auto-generated method stub
+
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		ArrayList<Product> productList = new ArrayList<Product>();
+		Product product = null;
+		String query = "select * from product where ct_code='tea'";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(query);
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				product = new Product();
+				String pCode = rs.getString("pCode");
+				String pName = rs.getString("pName");
+				String pPath = rs.getString("pPath");
+				int pPrice = rs.getInt("pPrice");
+				String ct_code = rs.getString("ct_code");
+
+				product.setpCode(pCode);
+				product.setpName(pName);
+				product.setpPath(pPath);
+				product.setpPrice(pPrice);
+				product.setCt_code(ct_code);
+
+				productList.add(product);
+
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				if (conn != null) {
+					conn.close();
+				}
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				if (rs != null) {
+					rs.close();
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		System.out.println("프로덕 티 리스트 :" + productList.toString() );
+		return productList;
+
+	}
 
 }

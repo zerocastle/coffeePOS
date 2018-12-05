@@ -9,26 +9,20 @@ import coffee.bean.Product;
 import coffee.bean.ProductDataBean;
 import coffee.commad.inter.CommandProcess;
 
-public class getProductCoffee implements CommandProcess {
-	ArrayList<Product> coffeeList = null;
+public class GetProductBread implements CommandProcess {
+	ArrayList<Product> breadList = null;
 	ProductDataBean productBean = null;
-
-	public getProductCoffee() {
-		// TODO Auto-generated constructor stub
-		System.out.println("커피 프로덕 찍히냐??");
-	}
-
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
 		System.out.println("커피프로덕 여기까지 나옴?");
 		productBean = ProductDataBean.getINSTANCE();
-		coffeeList = productBean.getCoffeeList();
-		System.out.println("커피 리스트 : " + coffeeList.toString());
-		request.getSession().setAttribute("getCoffeeList", coffeeList);
+		breadList = productBean.getBreadList();
+		System.out.println("빵 리스트 : " + breadList.toString());
+		request.getSession().setAttribute("getBreadList", breadList);
 
-		return "/productList/coffee.jsp";
+		return "/productList/Tea.jsp";
 	}
 
 }

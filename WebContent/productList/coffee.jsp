@@ -21,16 +21,22 @@
 	<c:set target="${sessionScope.getCoffeeLis }" var="object" />
 	<div id="result">
 		<table class="table table-hover">
-			<tr>
-				<c:forEach var="item" items="${sessionScope.getCoffeeList }">
+			<th></th>
+			<th>이미지</th>
+			<th>상품명</th>
+			<th>가격</th>
 
+			<c:forEach var="item" items="${sessionScope.getCoffeeList }">
+				<tr>
 
+					<td></td>
+					<td><img src="/coffeePOS/images/productImage/${item.pPath }" width="70px" height="70px" /></td>
+					<td>${item.pName}</td>
+					<td>${item.pPrice}</td>
 
-					<td><img src="${item.pPath }" />${item.pName} ${item.pPrice}</td>
+				</tr>
+			</c:forEach>
 
-
-				</c:forEach>
-			</tr>
 		</table>
 
 	</div>

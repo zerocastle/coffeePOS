@@ -23,11 +23,25 @@ $(document).ready(function() {
 		$('#coffee').hide();
 		$('#tea').show();
 		$('#bread').hide();
+		$.ajax({
+			type : "POST",
+			url : "/coffeePOS/tea/getList.do",
+			success : function() {
+				window.location.href = "/coffeePOS/index.jsp";
+			}
+		})
 	})
 	$('#category>ul li:eq(2)>a').click(function() {
 		$('#coffee').hide();
 		$('#tea').hide();
 		$('#bread').show();
+		$.ajax({
+			type : "POST",
+			url : "/coffeePOS/bread/getList.do",
+			success : function() {
+				window.location.href = "/coffeePOS/index.jsp";
+			}
+		})
 	})
 
 	$('#logout').click(function() {
