@@ -11,6 +11,8 @@
 	content="width = device-width, initial-scale = 1.0">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	
+<script src="singleupload.js"></script>
 <script src="../ele/eleButton.js"></script>
 <script src="../js/movingContent.js" charset="UTF-8"></script>
 <script src="../js/category.js"></script>
@@ -68,9 +70,9 @@
 				<div class="image">
 					<article>
 						<p id="status">File Upload</p>
-						<form action="fileUpload.jsp" enctype="multipart/form-data">
+						<form id="fileUpload" enctype="multipart/form-data" method="post" action="/coffeePOS/file/upload.do";>
 							<p>
-								<input type="file" name="file">
+								<input type="file" name="file" id="file">
 							</p>
 							<div id="holder"></div>
 					</article>
@@ -79,24 +81,24 @@
 				<div class="textBox">
 					<input class="text" type="textbox" placeholder="Product name"
 						id="fileName" onkeyup="this.setAttribute('value', this.value);"
-						value="" name="productName"> <label class="label">상품이름</label> <label
-						class="error"></label>
+						name="filName"> <label class="label">상품이름</label>
+					<label class="error"></label>
 				</div>
 				<div class="textBox">
 					<input class="text" type="text" placeholder="Price" id="filePrice"
-						onkeyup="this.setAttribute('value', this.value);" value="" /> <label
-						class="label" name="productPrice"/>가격</label>
+						onkeyup="this.setAttribute('value', this.value);" name="filePrice"/> <label
+						class="label" />가격</label>
 				</div>
 				<!-- 상품 카테고리 -->
 				<div class="textBox">
-				<select name="category">
-					<option value="br">빵</option>
-					<option value="cf">커피</option>
-					<option value="tea">차</option>
-				</select>
+					<select name="category" id="category">
+						<option value="br">빵</option>
+						<option value="cf">커피</option>
+						<option value="tea">차</option>
+					</select>
 				</div>
-				
-				<input type="submit" value="등록" />
+
+				<input type="submit"id="upload" class="button2" value="등록"/>
 				</form>
 
 				<button class="button2">삭제</button>

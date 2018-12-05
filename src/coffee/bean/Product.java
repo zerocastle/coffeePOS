@@ -2,17 +2,17 @@ package coffee.bean;
 
 public class Product {
 
-	private String pCode;
+	private int pCode;
 	private String pName;
 	private String pPath;
-	private int pPrice;
+	private String pPrice;
 	private String ct_code;
 
-	public String getpCode() {
+	public int getpCode() {
 		return pCode;
 	}
 
-	public void setpCode(String pCode) {
+	public void setpCode(int pCode) {
 		this.pCode = pCode;
 	}
 
@@ -32,11 +32,11 @@ public class Product {
 		this.pPath = pPath;
 	}
 
-	public int getpPrice() {
+	public String getpPrice() {
 		return pPrice;
 	}
 
-	public void setpPrice(int pPrice) {
+	public void setpPrice(String pPrice) {
 		this.pPrice = pPrice;
 	}
 
