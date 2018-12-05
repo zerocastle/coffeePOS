@@ -11,12 +11,15 @@
 	content="width = device-width, initial-scale = 1.0">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	
+
 <script src="singleupload.js"></script>
 <script src="../ele/eleButton.js"></script>
 <script src="../js/movingContent.js" charset="UTF-8"></script>
 <script src="../js/category.js"></script>
 <script src="../mng/mngButton.js"></script>
+<script>
+	
+</script>
 <link href="../css/bootstrap-responsive.css" rel="stylesheet">
 <link href="../css/login.css" rel="stylesheet">
 <!--  link rel="stylesheet" href="css/ysFont.css"-->
@@ -70,7 +73,9 @@
 				<div class="image">
 					<article>
 						<p id="status">File Upload</p>
-						<form id="fileUpload" enctype="multipart/form-data" method="post" action="/coffeePOS/file/upload.do";>
+						<form id="fileUpload" enctype="multipart/form-data" method="post"
+							action="/coffeePOS/file/upload.do";>
+							<div class="title">이미지 업로드</div>
 							<p>
 								<input type="file" name="file" id="file">
 							</p>
@@ -81,13 +86,13 @@
 				<div class="textBox">
 					<input class="text" type="textbox" placeholder="Product name"
 						id="fileName" onkeyup="this.setAttribute('value', this.value);"
-						name="filName"> <label class="label">상품이름</label>
-					<label class="error"></label>
+						name="filName"> <label class="label">상품이름</label> <label
+						class="error"></label>
 				</div>
 				<div class="textBox">
 					<input class="text" type="text" placeholder="Price" id="filePrice"
-						onkeyup="this.setAttribute('value', this.value);" name="filePrice"/> <label
-						class="label" />가격</label>
+						onkeyup="this.setAttribute('value', this.value);" name="filePrice" />
+					<label class="label"/>가격</label><label class="error"></label>
 				</div>
 				<!-- 상품 카테고리 -->
 				<div class="textBox">
@@ -98,7 +103,7 @@
 					</select>
 				</div>
 
-				<input type="submit"id="upload" class="button2" value="등록"/>
+				<input type="submit" id="upload" class="button2" value="등록" />
 				</form>
 
 				<button class="button2">삭제</button>

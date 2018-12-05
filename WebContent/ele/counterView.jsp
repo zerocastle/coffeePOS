@@ -107,33 +107,16 @@
 								<tr>
 									<td>아메리카노</td>
 									<td>1500원</td>
-									<td><i class="fa fa-minus" title="Decrease Qty"></i> <input
-										class="qty" value="3" name="qty" maxlength="3" /> <i
-										class="fa fa-plus" title="Increase Qty"></i></td>
+									<td>
+										<i class="fa fa-minus" title="Decrease Qty"/> 
+											<input class="qty" value="3" name="qty" maxlength="3" /> 
+										<i class="fa fa-plus" title="Increase Qty"/>
+									</td>
 									<td>4500원</td>
 									<td class="last"><i class="fa fa-trash-o"
 										title="Delete Item"></i></td>
 								</tr>
-								<tr>
-									<td>아메리카노</td>
-									<td>1500원</td>
-									<td><i class="fa fa-minus" title="Decrease Qty"></i> <input
-										class="qty" value="3" name="qty" maxlength="3" /> <i
-										class="fa fa-plus" title="Increase Qty"></i></td>
-									<td>4500원</td>
-									<td class="last"><i class="fa fa-trash-o"
-										title="Delete Item"></i></td>
-								</tr>
-								<tr>
-									<td>아메리카노</td>
-									<td>1500원</td>
-									<td><i class="fa fa-minus" title="Decrease Qty"></i> <input
-										class="qty" value="3" name="qty" maxlength="3" /> <i
-										class="fa fa-plus" title="Increase Qty"></i></td>
-									<td>4500원</td>
-									<td class="last"><i class="fa fa-trash-o"
-										title="Delete Item"></i></td>
-								</tr>
+
 							</tbody>
 						</table>
 

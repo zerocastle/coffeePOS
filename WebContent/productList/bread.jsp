@@ -21,18 +21,20 @@
 	<c:set target="${sessionScope.getCoffeeLis }" var="object" />
 	<div id="result">
 		<table class="table table-hover">
+		<tr>
 			<th></th>
 			<th>이미지</th>
 			<th>상품명</th>
 			<th>가격</th>
+		</tr>
 
 			<c:forEach var="item" items="${sessionScope.getBreadList }">
 				<tr>
 
-					<td></td>
-					<td><img src="/coffeePOS/images/productImage/${item.pPath }" width="70px" height="70px" /></td>
-					<td>${item.pName}</td>
-					<td>${item.pPrice}</td>
+					<td><button id="add" class="btn">추가</button></td>
+					<td><img src="/coffeePOS/images/${item.pPath }" width="70px" height="70px" /></td>
+					<td><input type = "text" value="${item.pName}"/></td>
+					<td><input type = "text" value="${item.pPrice}"/></td>
 
 				</tr>
 			</c:forEach>
