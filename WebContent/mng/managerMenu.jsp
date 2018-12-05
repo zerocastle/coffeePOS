@@ -14,6 +14,7 @@
 <script src="../ele/eleButton.js"></script>
 <script src="../js/movingContent.js" charset="UTF-8"></script>
 <script src="../js/category.js"></script>
+<script src="../mng/mngButton.js"></script>
 <link href="../css/bootstrap-responsive.css" rel="stylesheet">
 <link href="../css/login.css" rel="stylesheet">
 <!--  link rel="stylesheet" href="css/ysFont.css"-->
@@ -29,7 +30,7 @@
 					<img src="../images/brand.png" alt="" width="100" height="80">
 				</div>
 				<div class="container span2 offset3">
-					<h1 class="title" id="title">YS COFFEE</h1>
+					<h1 class="title" id="title">HAKA</h1>
 				</div>
 				<div class="row span4 offset1"></div>
 				<!-- 공백  -->
@@ -59,69 +60,49 @@
 				</div>
 			</div>
 		</div>
-		
+
 		<!-- 여기서 부터 상품수정 -->
-			<div class="container">
-				<h1>Product information</h1>
-				<div class="stuff">
-					<div class="image">
-						<article>
-							<p id="status">File Upload</p>
+		<div class="container">
+			<h1>Product information</h1>
+			<div class="stuff">
+				<div class="image">
+					<article>
+						<p id="status">File Upload</p>
+						<form action="fileUpload.jsp" enctype="multipart/form-data">
 							<p>
-								<input type=file>
+								<input type="file" name="file">
 							</p>
 							<div id="holder"></div>
-						</article>
-						<script>
-						/* 	var upload = document.getElementsByTagName('input')[0], holder = document
-									.getElementById('holder'), state = document
-									.getElementById('status');
-
-							if (typeof window.FileReader === 'undefined') {
-								state.className = 'fail';
-							} else {
-								state.className = 'success';
-								state.innerHTML = 'Product Image';
-							}
-
-							upload.onchange = function(e) {
-								e.preventDefault();
-
-								var file = upload.files[0], reader = new FileReader();
-								reader.onload = function(event) {
-									var img = new Image();
-									img.src = event.target.result;
-
-									if (img.width > 150) { // holder width
-										img.width = 150;
-									}
-									holder.innerHTML = '';
-									holder.appendChild(img);
-								};
-								reader.readAsDataURL(file);
-
-								return false;
-							}; */
-						</script>
-						<label class="label"></label> <label class="error"></label>
-					</div>
-					<div class="textBox">
-						<input class="text" type="textbox" placeholder="Product name"
-							onkeyup="this.setAttribute('value', this.value);" value="" /> <label
-							class="label">Product name</label> <label class="error"></label>
-					</div>
-					<div class="textBox">
-						<input class="text" type="text" placeholder="Price"
-							onkeyup="this.setAttribute('value', this.value);" value="" /> <label
-							class="label">Price</label>
-					</div>
-
-					<button class="button1">수정</button>
-
-					<button class="button2">취소</button>
-
+					</article>
+					<label class="label"></label> <label class="error"></label>
 				</div>
+				<div class="textBox">
+					<input class="text" type="textbox" placeholder="Product name"
+						id="fileName" onkeyup="this.setAttribute('value', this.value);"
+						value="" name="productName"> <label class="label">상품이름</label> <label
+						class="error"></label>
+				</div>
+				<div class="textBox">
+					<input class="text" type="text" placeholder="Price" id="filePrice"
+						onkeyup="this.setAttribute('value', this.value);" value="" /> <label
+						class="label" name="productPrice"/>가격</label>
+				</div>
+				<!-- 상품 카테고리 -->
+				<div class="textBox">
+				<select name="category">
+					<option value="br">빵</option>
+					<option value="cf">커피</option>
+					<option value="tea">차</option>
+				</select>
+				</div>
+				
+				<input type="submit" value="등록" />
+				</form>
+
+				<button class="button2">삭제</button>
+
 			</div>
+		</div>
 	</c:if>
 </body>
 </html>

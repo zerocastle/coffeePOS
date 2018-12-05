@@ -63,14 +63,20 @@ CREATE TABLE `point_list` (
 
 product
 CREATE TABLE `product` (
-	`pCode` VARCHAR(7) NOT NULL,
-	`pName` VARCHAR(24) NULL DEFAULT NULL,
-	`pPrice` VARCHAR(5) NULL DEFAULT NULL,
-	`ct_code` VARCHAR(7) NULL DEFAULT NULL,
+	`pCode` INT(11) NOT NULL AUTO_INCREMENT,
+	`pName` VARCHAR(24) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
+	`pPath` VARCHAR(500) NULL DEFAULT NULL,
+	`pPrice` VARCHAR(5) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
+	`ct_code` VARCHAR(7) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
 	PRIMARY KEY (`pCode`),
 	INDEX `product` (`ct_code`),
 	CONSTRAINT `product` FOREIGN KEY (`ct_code`) REFERENCES `category` (`ct_code`)
 )
+COLLATE='euckr_korean_ci'
+ENGINE=InnoDB
+AUTO_INCREMENT=12
+;
+
 
 purchase_item
 CREATE TABLE `purchase_item` (

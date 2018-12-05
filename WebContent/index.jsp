@@ -180,7 +180,7 @@ footer {
 					<img src="images/brand.png" alt="" width="100" height="80">
 				</div>
 				<div class="container span2 offset3">
-					<h1 class="title" id="title">YS COFFEE</h1>
+					<h1 class="title" id="title">HAKA</h1>
 				</div>
 				<div class="row span4 offset1"></div>
 				<!-- 공백  -->
@@ -235,7 +235,7 @@ footer {
 					<img src="images/brand.png" alt="" width="100" height="80">
 				</div>
 				<div class="container span2 offset3">
-					<h1 class="title" id="title">YS COFFEE</h1>
+					<h1 class="title" id="title">HAKA</h1>
 				</div>
 				<div class="row span4 offset1"></div>
 				<!-- 공백  -->

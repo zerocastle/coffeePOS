@@ -101,6 +101,9 @@ $(document).ready(
 					}
 				})
 			})
+			
+			
+			
 		})
 		function checkIt() {
 	state = true;
