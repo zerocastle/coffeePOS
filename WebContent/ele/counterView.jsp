@@ -132,9 +132,9 @@
 
 
 
-								
+
 								<c:forEach items="${sessionScope.counterList}" var="item">
-								
+
 									<tr>
 										<td>${item[0]}</td>
 										<td>${item[1]}</td>
