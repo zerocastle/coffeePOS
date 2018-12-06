@@ -160,6 +160,7 @@ public class ClientDataBean {
 		}
 		return x;
 	}
+
 	// 고객 삭제
 	public int deleteMember(String cId) {
 		// TODO Auto-generated method stub
@@ -196,9 +197,9 @@ public class ClientDataBean {
 		return x;
 
 	}
-	
+
 	// 유저 있는지 확인
-	
+
 	public int clientUserCheck(String cId) {
 		// TODO Auto-generated method stub
 		Connection conn = null;
@@ -206,22 +207,92 @@ public class ClientDataBean {
 		ResultSet set = null;
 		int x = -1;
 		String query = "select * from client where cId=?";
-		
+
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, cId);
 			set = pstmt.executeQuery();
-			if(set.next()) {
-				x = 1; //현제 아이디 값이 있음
-			}else
+			if (set.next()) {
+				x = 1; // 현제 아이디 값이 있음
+			} else
 				x = 0;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} finally {
+			try {
+				if (conn != null) {
+					conn.close();
+				}
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				if (set != null) {
+					set.close();
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
 		}
 		return x;
 
+	}
+
+	public String[] searchcId(String cId) {
+		// TODO Auto-generated method stub
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet set = null;
+		int x = 0;
+		String[] str = new String[3];
+		String query = "select cName,cPoint from client where cId = ?";
+
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, cId);
+			set = pstmt.executeQuery();
+			String cName = null;
+			int cPoint = 0;
+			if (set == null) {
+				x = 0;
+			} else {
+				while (set.next()) {
+					cName = set.getString("cName");
+					System.out.println("cName :" + cName);
+					cPoint = set.getInt("cPoint");
+					System.out.println("cPoint : " + cPoint);
+					x = 1;
+				}
+				str[0] = Integer.toString(x);
+				str[1] = cName;
+				str[2] = Integer.toString(cPoint);
+
+			}
+		} catch (
+
+		Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				if (conn != null) {
+					conn.close();
+				}
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				if (set != null) {
+					set.close();
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+		}
+		return str;
 	}
 
 }

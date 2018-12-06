@@ -89,6 +89,7 @@
 	display: inline-block;
 }
 </style>
+<script src="productList/productButton.js"></script>
 <script>
 	function search(value) {
 
@@ -103,14 +104,16 @@
 			url : "/coffeePOS/product/counter.do",
 			data : query,
 			success : function(data) {
-				
-				window.location.href="/coffeePOS/index.jsp";
+
+				window.location.href = "/coffeePOS/index.jsp";
+
 			}
 
 		})
 
 	}
 </script>
+
 </head>
 <body>
 	<div>
@@ -185,12 +188,12 @@
 			<div class="c">
 				<div class="c-1">
 					<input class="input-large" type="textbox">
-					<button class="btn btn-large">조회</button>
+					<button class="btn btn-large" id="clePointSearch">조회</button>
 					<div class="c-1-1"></div>
 				</div>
 				<div class="c-2">
-					<button class="btn btn-block">결제</button>
-					<button class="btn btn-block-1">취소</button>
+					<button class="btn btn-block" id="payment">결제</button>
+					<button class="btn btn-block-1" id="cancle">취소</button>
 				</div>
 
 			</div>

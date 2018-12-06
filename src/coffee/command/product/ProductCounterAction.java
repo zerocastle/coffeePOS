@@ -34,7 +34,7 @@ public class ProductCounterAction implements CommandProcess {
 		String[] str = new String[3];
 
 		ProductDataBean bean = ProductDataBean.getINSTANCE();
-		str = bean.getCounterViewList(pName); // 값추출
+		str = bean.getCounterViewList(pName); 
 
 		for (int i = 0; i < str.length; i++) {
 			System.out.println("str : " + str[i]);
