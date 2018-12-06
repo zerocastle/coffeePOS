@@ -15,27 +15,50 @@
 <!-- <script src="productList/productJS/coffee.js"></script> -->
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
+<script>
+function search(value) {
+	
+	var search = value;
+	alert(value);
+	/* var query = {
+			pName : value
+		};
+	$.ajax({
+		
+			type:"POST",
+			url:"coffeePOS/coffee/add.do",
+			data : query,
+			success : function(data){
+				alert("test" + data);
+			}
+			
+		}) */
+		
+	}
+</script>
 </head>
 <body>
 	<c:set var="counter" value="0" />
 	<c:set target="${sessionScope.getCoffeeLis }" var="object" />
 	<div id="result">
 		<table class="table table-hover" id="table">
-		<tr>
-			<th></th>
-			<th>이미지</th>
-			<th>상품명</th>
-			<th>가격</th>
-		</tr>
+			<tr>
+				<th></th>
+				<th>이미지</th>
+				<th>상품명</th>
+				<th>가격</th>
+			</tr>
 			<c:forEach var="item" items="${sessionScope.getCoffeeList }">
 				<tr>
 
-					<td><button id="add" class="btn">추가</button></td>
-					<td><img src="/coffeePOS/images/${item.pPath }" width="70px" height="70px" /></td>
-					<td><input type = "text" value="${item.pName}" id="${item.pName}"/></td>
-					<td><input type = "text" value="${item.pPrice}" id="${item.pPrice}"/></td>
-
+					<td><button class="btn" value="${item.pName }"
+							onclick="search(this.value)">선택</button></td>
+					<td><img src="/coffeePOS/images/${item.pPath }" width="70px"
+						height="70px" /></td>
+					<td><input type="text" value="${item.pName}"
+						id="${item.pName}" /></td>
+					<td><input type="text" value="${item.pPrice}"
+						id="${item.pPrice}" /></td>
 				</tr>
 			</c:forEach>
 
