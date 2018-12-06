@@ -118,7 +118,7 @@
 			<div class="a">
 				<div id="mainContent">
 
-					<div id="basket"  style="overflow-y: auto; height:400px;">
+					<div id="basket" style="overflow-y: auto; height: 400px;">
 						<table class="table table-striped">
 							<thead>
 								<tr>
@@ -129,17 +129,9 @@
 								</tr>
 							</thead>
 							<tbody>
-								<!-- <tr>
-									<td>아메리카노</td>
-									<td>1500원</td>
-									<td><i class="fa fa-minus" title="Decrease Qty" /> <input
-										class="qty" value="3" name="qty" maxlength="3" /> <i
-										class="fa fa-plus" title="Increase Qty" /></td>
-									<td>4500원</td>
-									<td class="last"><i class="fa fa-trash-o"
-										title="Delete Item"></i></td>
-								</tr> -->
-								<div>세션 값은 : ${sessionScope.counterList }</div>
+
+
+
 								<c:set var="counter" value="${0 }" />
 								<c:forEach items="${sessionScope.counterList}" var="item">
 
@@ -156,33 +148,39 @@
 
 
 					</div>
-					
+
 					<!-- 리스트 창 -->
-					
+
 				</div>
 			</div>
+
+
+
 			<div class="b">
 				<table class="table">
-					<td>총 금액
-						<div class="b-1">
-							<input class="input-medium" type="text" size="6" length="6">
-						</div>
-					</td>
+					<tr>
+						<td>총 금액
+							<div class="b-1">
+								<input class="input-medium" type="text" size="6" length="6"
+									value="${counter}">
+							</div>
+						</td>
+					</tr>
 					<tr>
 						<td>적립금 사용 <input class="input-small" type="textbox">
-							<button class="btn btn-default">사용</button></td> 삭제
-						<tr>
+							<button class="btn btn-default">사용</button></td>
+					<tr>
 						<td>결제 금액
 							<div class="box-1"></div>
 						</td>
-					
 					<tr>
 						<td>적립금
 							<div class="box-2"></div>
 						</td>
-				
 				</table>
 			</div>
+
+
 			<div class="c">
 				<div class="c-1">
 					<input class="input-large" type="textbox">
@@ -191,12 +189,11 @@
 				</div>
 				<div class="c-2">
 					<button class="btn btn-block">결제</button>
-					<button class="btn btn-block-1">
-				</button></div>
-					
+					<button class="btn btn-block-1">취소</button>
+				</div>
+
 			</div>
 		</div>
-
 </body>
 </html>
 
