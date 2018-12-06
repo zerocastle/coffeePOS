@@ -4,7 +4,7 @@ public class Itemlist {
 
 	private int counter;
 	private String pName;
-	private int price;
+	private int pPrice;
 	private int ea;
 	private int totalMoney;
 
@@ -25,11 +25,11 @@ public class Itemlist {
 	}
 
 	public int getPrice() {
-		return price;
+		return pPrice;
 	}
 
 	public void setPrice(int price) {
-		this.price = price;
+		this.pPrice = price;
 	}
 
 	public int getEa() {

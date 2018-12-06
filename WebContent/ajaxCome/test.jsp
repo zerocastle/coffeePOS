@@ -9,3 +9,4 @@ ${requestScope.clientUserCheck}
 ${requestScope.employeeUserCheck}
 
 ${requestScope.productList}
+${requestScope.itemAdd}

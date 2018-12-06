@@ -15,12 +15,13 @@
 <!-- <script src="productList/productJS/coffee.js"></script> -->
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="productList/productButton.js"></script>
 </head>
 <body>
 	<c:set var="counter" value="0" />
 	<c:set target="${sessionScope.getCoffeeLis }" var="object" />
 	<div id="result">
-		<table class="table table-hover">
+		<table class="table table-hover" id="table">
 		<tr>
 			<th></th>
 			<th>이미지</th>
@@ -32,8 +33,8 @@
 
 					<td><button id="add" class="btn">추가</button></td>
 					<td><img src="/coffeePOS/images/${item.pPath }" width="70px" height="70px" /></td>
-					<td><input type = "text" value="${item.pName}"/></td>
-					<td><input type = "text" value="${item.pPrice}"/></td>
+					<td><input type = "text" value="${item.pName}" id="${item.pName}"/></td>
+					<td><input type = "text" value="${item.pPrice}" id="${item.pPrice}"/></td>
 
 				</tr>
 			</c:forEach>

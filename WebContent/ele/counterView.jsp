@@ -1,6 +1,7 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -104,18 +105,30 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
+								<!-- <tr>
 									<td>아메리카노</td>
 									<td>1500원</td>
-									<td>
-										<i class="fa fa-minus" title="Decrease Qty"/> 
-											<input class="qty" value="3" name="qty" maxlength="3" /> 
-										<i class="fa fa-plus" title="Increase Qty"/>
-									</td>
+									<td><i class="fa fa-minus" title="Decrease Qty" /> <input
+										class="qty" value="3" name="qty" maxlength="3" /> <i
+										class="fa fa-plus" title="Increase Qty" /></td>
 									<td>4500원</td>
 									<td class="last"><i class="fa fa-trash-o"
 										title="Delete Item"></i></td>
-								</tr>
+								</tr> -->
+
+								<c:forEach items="${requestScope.itemList}" var="item">
+									<c:set var="counter" value="${counter + 1 }"></c:set>
+									<tr>
+										<td align="center"><label class="checkbox inline">
+												<input type="checkbox" id="${counter }" value="option1">
+										</label></td>
+										<td><c:out value="${counter}"></c:out></td>
+										<td>${item.pName()}</td>
+										<td>${item.pPrice()}</td>
+
+									</tr>
+
+								</c:forEach>
 
 							</tbody>
 						</table>
