@@ -118,7 +118,7 @@
 			<div class="a">
 				<div id="mainContent">
 
-					<div id="basket"  style="overflow-y: scroll; height:400px;">
+					<div id="basket"  style="overflow-y: auto; height:400px;">
 						<table class="table table-striped">
 							<thead>
 								<tr>
@@ -146,7 +146,7 @@
 									<tr>
 										<td>${item[0]}</td>
 										<td>${item[1]}</td>
-										<td></td>
+										<td>${item[2]}</td>
 
 									</tr>
 								</c:forEach>
@@ -156,6 +156,9 @@
 
 
 					</div>
+					
+					<!-- 리스트 창 -->
+					
 				</div>
 			</div>
 			<div class="b">

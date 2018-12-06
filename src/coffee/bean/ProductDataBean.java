@@ -10,6 +10,8 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
+import coffee.command.product.ProductCounterAction;
+
 public class ProductDataBean {
 	private static ProductDataBean INSTANCE = new ProductDataBean();
 
@@ -237,7 +239,7 @@ public class ProductDataBean {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String []forward = new String[2];
+		String[] forward = new String[3];
 		Product product = null;
 		String query = "select * from product where pName=?";
 		try {
@@ -253,7 +255,9 @@ public class ProductDataBean {
 				String price = rs.getString("pPrice");
 				forward[0] = name;
 				forward[1] = price;
-
+				int temp = ProductCounterAction.totalAmount = ProductCounterAction.totalAmount
+						+ Integer.parseInt(forward[1]);
+				forward[2] = Integer.toString(temp);
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -273,7 +277,7 @@ public class ProductDataBean {
 				e.printStackTrace();
 			}
 		}
-		
+
 		return forward;
 
 	}

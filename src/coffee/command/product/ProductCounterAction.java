@@ -16,6 +16,8 @@ public class ProductCounterAction implements CommandProcess {
 //	public static ArrayList<Product> COUNTERVIEW = new ArrayList<Product>();
 //	public Product product = null;
 	public static ArrayList<String[]> please = new ArrayList<String[]>();
+	public static int totalAmount = 0;
+
 	public ProductCounterAction() {
 		// TODO Auto-generated constructor stub
 
@@ -27,16 +29,17 @@ public class ProductCounterAction implements CommandProcess {
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 		// TODO Auto-generated method stub
 		String pName = request.getParameter("pName");
-
-		String []str = new String[2];
 		JSONArray array = new JSONArray();
 		JSONObject object = new JSONObject();
+		String[] str = new String[3];
+
 		ProductDataBean bean = ProductDataBean.getINSTANCE();
-		str = bean.getCounterViewList(pName);
-		
-		for(int i = 0; i < str.length; i++) {
+		str = bean.getCounterViewList(pName); // 값추출
+
+		for (int i = 0; i < str.length; i++) {
 			System.out.println("str : " + str[i]);
 		}
+
 		please.add(str);
 		HttpSession session = request.getSession();
 		session.setAttribute("counterList", please);
