@@ -97,16 +97,17 @@
 		var query = {
 			pName : value
 		};
-		 $.ajax({
+		$.ajax({
 
 			type : "POST",
 			url : "/coffeePOS/product/counter.do",
 			data : query,
 			success : function(data) {
-				alert("test" + data);
+				
+				window.location.href="/coffeePOS/index.jsp";
 			}
 
-		}) 
+		})
 
 	}
 </script>
@@ -117,7 +118,7 @@
 			<div class="a">
 				<div id="mainContent">
 
-					<div id="basket">
+					<div id="basket"  style="overflow-y: scroll; height:400px;">
 						<table class="table table-striped">
 							<thead>
 								<tr>
@@ -138,19 +139,16 @@
 									<td class="last"><i class="fa fa-trash-o"
 										title="Delete Item"></i></td>
 								</tr> -->
+								<div>세션 값은 : ${sessionScope.counterList }</div>
+								<c:set var="counter" value="${0 }" />
+								<c:forEach items="${sessionScope.counterList}" var="item">
 
-								<c:forEach items="${requestScope.itemList}" var="item">
-									<c:set var="counter" value="${counter + 1 }"></c:set>
 									<tr>
-										<td align="center"><label class="checkbox inline">
-												<input type="checkbox" id="${counter }" value="option1">
-										</label></td>
-										<td><c:out value="${counter}"></c:out></td>
-										<td>${item.pName()}</td>
-										<td>${item.pPrice()}</td>
+										<td>${item[0]}</td>
+										<td>${item[1]}</td>
+										<td></td>
 
 									</tr>
-
 								</c:forEach>
 
 							</tbody>
@@ -169,15 +167,17 @@
 					</td>
 					<tr>
 						<td>적립금 사용 <input class="input-small" type="textbox">
-							<button class="btn btn-default">사용</button></td>
-					<tr>
+							<button class="btn btn-default">사용</button></td> 삭제
+						<tr>
 						<td>결제 금액
 							<div class="box-1"></div>
 						</td>
+					
 					<tr>
 						<td>적립금
 							<div class="box-2"></div>
 						</td>
+				
 				</table>
 			</div>
 			<div class="c">
@@ -188,10 +188,12 @@
 				</div>
 				<div class="c-2">
 					<button class="btn btn-block">결제</button>
-					<button class="btn btn-block-1">삭제</button>
-				</div>
+					<button class="btn btn-block-1">
+				</button></div>
+					
 			</div>
 		</div>
+
 </body>
 </html>
 

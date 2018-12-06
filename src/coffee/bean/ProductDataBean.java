@@ -196,16 +196,6 @@ public class ProductDataBean {
 
 	}
 
-//	public void insertProduct(String pName , String pPath , int pPrice , String ct_code) {
-//		// TODO Auto-generated method stub
-//		
-//		
-//		
-//		
-//		
-//		
-//
-//	}
 	public void insertPrpduct(String pName, String pPath, String pPrice, String ct_code) throws Exception {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -237,6 +227,54 @@ public class ProductDataBean {
 				} catch (SQLException ex) {
 				}
 		}
+
+	}
+
+	// 제발
+	public String[] getCounterViewList(String pName) {
+		// TODO Auto-generated method stub
+
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String []forward = new String[2];
+		Product product = null;
+		String query = "select * from product where pName=?";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, pName);
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				product = new Product();
+				String name = rs.getString("pName");
+
+				String price = rs.getString("pPrice");
+				forward[0] = name;
+				forward[1] = price;
+
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				if (conn != null) {
+					conn.close();
+				}
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				if (rs != null) {
+					rs.close();
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return forward;
 
 	}
 
