@@ -132,15 +132,16 @@
 
 
 
-								<c:set var="counter" value="${0 }" />
+								
 								<c:forEach items="${sessionScope.counterList}" var="item">
-
+								
 									<tr>
 										<td>${item[0]}</td>
 										<td>${item[1]}</td>
 										<td>${item[2]}</td>
 
 									</tr>
+									<c:set var="total" value="${item[2]}"></c:set>
 								</c:forEach>
 
 							</tbody>
@@ -162,7 +163,7 @@
 						<td>총 금액
 							<div class="b-1">
 								<input class="input-medium" type="text" size="6" length="6"
-									value="${counter}">
+									value="${total}">
 							</div>
 						</td>
 					</tr>
