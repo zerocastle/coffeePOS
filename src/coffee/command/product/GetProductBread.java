@@ -22,7 +22,7 @@ public class GetProductBread implements CommandProcess {
 		System.out.println("빵 리스트 : " + breadList.toString());
 		request.getSession().setAttribute("getBreadList", breadList);
 
-		return "/productList/Tea.jsp";
+		return "/productList/bread.jsp ";
 	}
 
 }

@@ -14,7 +14,8 @@ $(document).ready(function() {
 			type : "POST",
 			url : "/coffeePOS/coffee/getList.do",
 			success : function() {
-				window.location.href = "/coffeePOS/index.jsp";
+//				window.location.href = "/coffeePOS/index.jsp";
+//				window.location.reload();
 			}
 		})
 
@@ -27,7 +28,8 @@ $(document).ready(function() {
 			type : "POST",
 			url : "/coffeePOS/tea/getList.do",
 			success : function() {
-				window.location.href = "/coffeePOS/index.jsp";
+//				window.location.href = "/coffeePOS/index.jsp";
+//				window.location.reload();
 			}
 		})
 	})
@@ -39,7 +41,8 @@ $(document).ready(function() {
 			type : "POST",
 			url : "/coffeePOS/bread/getList.do",
 			success : function() {
-				window.location.href = "/coffeePOS/index.jsp";
+//				window.location.href = "/coffeePOS/index.jsp";
+//				window.location.reload();
 			}
 		})
 	})

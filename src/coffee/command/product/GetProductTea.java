@@ -27,6 +27,6 @@ public class GetProductTea implements CommandProcess {
 		System.out.println("티 리스트 : " + teaList.toString());
 		request.getSession().setAttribute("getTeaList", teaList);
 
-		return "/productList/Tea.jsp";
+		return "/productList/tea.jsp";
 	}
 }

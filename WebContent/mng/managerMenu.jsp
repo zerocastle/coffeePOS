@@ -18,7 +18,9 @@
 <script src="../js/category.js"></script>
 <script src="../mng/mngButton.js"></script>
 <script>
-	
+	function refresh(){
+		window.location.reload();
+	}
 </script>
 <link href="../css/bootstrap-responsive.css" rel="stylesheet">
 <link href="../css/login.css" rel="stylesheet">
@@ -103,7 +105,7 @@
 					</select>
 				</div>
 
-				<input type="submit" id="upload" class="button2" value="등록" />
+				<input type="submit" id="upload" class="button2" value="등록" onclick="refresh();" />
 				</form>
 
 				<button class="button2">삭제</button>
