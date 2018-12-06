@@ -17,11 +17,7 @@
 <script src="../js/movingContent.js" charset="UTF-8"></script>
 <script src="../js/category.js"></script>
 <script src="../mng/mngButton.js"></script>
-<script>
-	function refresh(){
-		window.location.reload();
-	}
-</script>
+
 <link href="../css/bootstrap-responsive.css" rel="stylesheet">
 <link href="../css/login.css" rel="stylesheet">
 <!--  link rel="stylesheet" href="css/ysFont.css"-->
@@ -105,7 +101,7 @@
 					</select>
 				</div>
 
-				<input type="submit" id="upload" class="button2" value="등록" onclick="refresh();" />
+				<input type="submit" id="upload" class="button2" value="등록" />
 				</form>
 
 				<button class="button2">삭제</button>

@@ -16,6 +16,8 @@
 	rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="css/counterView.css">
 <title>Insert title here</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <style>
 .main {
 	width: 100%;
@@ -87,6 +89,27 @@
 	display: inline-block;
 }
 </style>
+<script>
+	function search(value) {
+
+		var search = value;
+		alert(value);
+		var query = {
+			pName : value
+		};
+		 $.ajax({
+
+			type : "POST",
+			url : "/coffeePOS/product/counter.do",
+			data : query,
+			success : function(data) {
+				alert("test" + data);
+			}
+
+		}) 
+
+	}
+</script>
 </head>
 <body>
 	<div>

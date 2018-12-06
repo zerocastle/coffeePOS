@@ -15,27 +15,7 @@
 <!-- <script src="productList/productJS/coffee.js"></script> -->
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script>
-function search(value) {
-	
-	var search = value;
-	alert(value);
-	/* var query = {
-			pName : value
-		};
-	$.ajax({
-		
-			type:"POST",
-			url:"coffeePOS/coffee/add.do",
-			data : query,
-			success : function(data){
-				alert("test" + data);
-			}
-			
-		}) */
-		
-	}
-</script>
+
 </head>
 <body>
 	<c:set var="counter" value="0" />

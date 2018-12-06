@@ -29,13 +29,16 @@
 		</tr>
 
 			<c:forEach var="item" items="${sessionScope.getBreadList }">
-				<tr>
+						<tr>
 
-					<td><button id="add" class="btn">추가</button></td>
-					<td><img src="/coffeePOS/images/${item.pPath }" width="70px" height="70px" /></td>
-					<td><input type = "text" value="${item.pName}"/></td>
-					<td><input type = "text" value="${item.pPrice}"/></td>
-
+					<td><button class="btn" value="${item.pName }"
+							onclick="search(this.value)">선택</button></td>
+					<td><img src="/coffeePOS/images/${item.pPath }" width="70px"
+						height="70px" /></td>
+					<td><input type="text" value="${item.pName}"
+						id="${item.pName}" /></td>
+					<td><input type="text" value="${item.pPrice}"
+						id="${item.pPrice}" /></td>
 				</tr>
 			</c:forEach>
 
