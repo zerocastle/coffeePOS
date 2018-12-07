@@ -294,5 +294,48 @@ public class ClientDataBean {
 		}
 		return str;
 	}
+	
+	
+	//클라이언트 수정
+	public int clientModify(String cId, String cPhone) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet set = null;
+		int x = -1;
+		String query = "update client set cPhone = ? where cId = ?";
+
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, cPhone);
+			pstmt.setString(2, cId);
+			x = pstmt.executeUpdate();
+			if (x > 0) {
+				x = 1;
+			} else
+				x = 0;
+
+		} catch (Exception e) {
+			e.printStackTrace();
+
+		}
+
+		finally {
+			try {
+				if (conn != null) {
+					conn.close();
+				}
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				if (set != null) {
+					set.close();
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return x;
+	}
 
 }

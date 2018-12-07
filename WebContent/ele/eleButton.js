@@ -41,6 +41,12 @@ $(document).ready(
 						window = window.open("delete.jsp", "delete",
 								"width=400, height=450");
 					});
+			//수정
+			$('#modify').click(
+					function() {
+						window = window.open("eleClientModify.jsp", "delete",
+								"width=400, height=450");
+					});
 
 			// 회원 가입
 			$('#registerSubmit').click(
