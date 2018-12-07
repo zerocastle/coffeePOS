@@ -67,6 +67,10 @@ h1 {
 				
 				})
 			})
+			
+			$('#cancle').click(function(){
+				close();
+			})
 
 		})
 	})
