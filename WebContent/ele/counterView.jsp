@@ -112,6 +112,18 @@
 		})
 
 	}
+
+	function pointUse() {
+		var totalMoney = $('#totalMoney').val();
+		var clientPoint = $('#pointPrepared').val();
+
+		var payMentMoney = totalMoney - clientPoint;
+		var stackPoint = Number(payMentMoney)* 0.1;
+		alert(stackPoint);
+		$('#payMentMoney').val(payMentMoney);
+		$('#clientStackPoint').val(stackPoint); 
+		
+	}
 </script>
 
 </head>
@@ -166,20 +178,23 @@
 						<td>총 금액
 							<div class="b-1">
 								<input class="input-medium" type="text" size="6" length="6"
-									value="${total}">
+									value="${total}" id="totalMoney">
 							</div>
 						</td>
 					</tr>
 					<tr>
-						<td>적립금 사용 <input class="input-small" type="textbox">
-							<button class="btn btn-default">사용</button></td>
+						<td>적립금 사용 <input class="input-small" type="textbox"
+							id="pointPrepared" />
+							<button class="btn btn-default" id="pointuse"
+								onclick="pointUse();">사용</button></td>
 					<tr>
-						<td>결제 금액
-							<div class="box-1"></div>
+						<td>결제 금액 <input type="text" id="payMentMoney" width="8">
 						</td>
 					<tr>
 						<td>적립금
-							<div class="box-2"></div>
+							<div>
+								<input type="text" id="clientStackPoint"/>
+							</div>
 						</td>
 				</table>
 			</div>
@@ -189,7 +204,10 @@
 				<div class="c-1">
 					<input class="input-large" type="textbox">
 					<button class="btn btn-large" id="clePointSearch">조회</button>
-					<div class="c-1-1"><input type="text" id="clientInfo">님 의 사용 가능한 적립금은 <input type="text" id="clientPoint"/></div>
+					<div class="c-1-1">
+						<input type="text" id="clientInfo">님 의 사용 가능한 적립금은 <input
+							type="text" id="clientPoint" />
+					</div>
 				</div>
 				<div class="c-2">
 					<button class="btn btn-block" id="payment">결제</button>
