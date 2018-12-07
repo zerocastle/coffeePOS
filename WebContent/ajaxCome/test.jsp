@@ -11,3 +11,4 @@ ${requestScope.employeeUserCheck}
 ${requestScope.productList}
 
 ${requestScope.clientSearchCounter}
+${requestScope.deleteProductName}

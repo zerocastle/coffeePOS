@@ -232,7 +232,7 @@ public class ProductDataBean {
 
 	}
 
-	// 제발
+	// 제발 카운토 부분으로 전달
 	public String[] getCounterViewList(String pName) {
 		// TODO Auto-generated method stub
 
@@ -281,8 +281,7 @@ public class ProductDataBean {
 		return forward;
 
 	}
-	
-	
+
 	public ArrayList<Product> getAllProduct() {
 		// TODO Auto-generated method stub
 
@@ -335,6 +334,44 @@ public class ProductDataBean {
 		}
 		System.out.println("프로덕 all 리스트" + productList.toString());
 		return productList;
+
+	}
+
+	public int deleteProduct(String pName) {
+		// TODO Auto-generated method stub
+
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int x = 0; 
+		ArrayList<Product> productList = new ArrayList<Product>();
+		Product product = null;
+		String query = "delete from product where pName = ?";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, pName);
+			x = pstmt.executeUpdate();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				if (conn != null) {
+					conn.close();
+				}
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				if (rs != null) {
+					rs.close();
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		System.out.println("상품 리스트 삭제 ");
+		return x;
 
 	}
 

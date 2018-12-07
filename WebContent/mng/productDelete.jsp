@@ -15,7 +15,29 @@
 <!-- <script src="productList/productJS/coffee.js"></script> -->
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+	function deleteProduct(pName) {
+		var str = pName;
+		var query = {
+			pName : str
+		};
+		$.ajax({
+			type : "POST",
+			url : "/coffeePOS/select/product/delete.do",
+			data : query,
+			success : function(data) {
+				if (data >= 1) {
+					alert("상품을 삭제 했습니다.");
+					close();
+				} else {
+					alert("상품 삭제에 실패 했습니다.");
+					window.location.href = "/coffeePOS/mng/productDelete.jsp";
+				}
 
+			}
+		})
+	}
+</script>
 </head>
 <body>
 	<c:set var="counter" value="0" />
@@ -32,7 +54,7 @@
 				<tr>
 
 					<td><button class="btn" value="${item.pName }"
-							onclick="search(this.value)">선택</button></td>
+							onclick="deleteProduct(this.value)">선택</button></td>
 					<td><img src="/coffeePOS/images/${item.pPath }" width="70px"
 						height="70px" /></td>
 					<td><input type="text" value="${item.pName}"
