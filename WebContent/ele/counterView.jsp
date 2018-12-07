@@ -189,7 +189,7 @@
 				<div class="c-1">
 					<input class="input-large" type="textbox">
 					<button class="btn btn-large" id="clePointSearch">조회</button>
-					<div class="c-1-1">${requestScope.cId }<br/>${requestScope.cPoint }</div>
+					<div class="c-1-1"><input type="text" id="clientInfo">님 의 사용 가능한 적립금은 <input type="text" id="clientPoint"/></div>
 				</div>
 				<div class="c-2">
 					<button class="btn btn-block" id="payment">결제</button>

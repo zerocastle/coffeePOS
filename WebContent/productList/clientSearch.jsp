@@ -36,31 +36,35 @@ h1 {
 				success : function(data) {
 
 					var a = JSON.parse(data);
-					if(a.cId[0] == "0"){
+					if (a.cId[0] == "0") {
 						alert("그런 회원은 없어요");
-					}else if(a.cId[0] == "1"){
+					} else if (a.cId[0] == "1") {
 						alert(a.cId[1] + "님 확인 완료");
-						$('#result').html("<span id='cId'>"+ a.cId[1] + "</span>님 의 사용 가능한 포인트 금액은 <span id='cPoint'>" + a.cId[2] + "</span>원 입니다" + 
-								"<button id='use'>확인</button><button id='cancel'>취소</button>");
+						/* $('#result').html("<span id='cId'>"+ a.cId[1] + "</span>님 의 사용 가능한 포인트 금액은 <span id='cPoint'>" + a.cId[2] + "</span>원 입니다" + 
+								"<button id='use'>확인</button><button id='cancel'>취소</button>"); */
+						$('#clientName').val(a.cId[1]);
+						$('#availableMoney').val(a.cId[2]);
 					}
-					
-					
+
 				}
 			})
-			
-			$('#use').click(function(){
-				
-				var query =  {
-						cId : $('cId').val(),
-						cPoint : $('cPoint').val()
+
+			$('#use').click(function() {
+
+				var query = {
+					cId : $('cId').val(),
+					cPoint : $('cPoint').val()
 				};
 				$.ajax({
-					type:"POST",
+					type : "POST",
 					url : "/coffeePOS/ele/counterView.jsp",
 					data : query,
-					success : function(){
+					success : function() {
+						window.opener.$('#clientInfo').val($('#clientName').val());
+						window.opener.$('#clientPoint').val($('#availableMoney').val());
 						close();
 					}
+				
 				})
 			})
 
@@ -81,6 +85,11 @@ h1 {
 		</table>
 	</div>
 
-	<div id="result"></div>
+	<div id="result">
+		<input type="text" id="clientName" /> 님 의 사용 가능한 포인트 금액은 <input
+			type="text" id="availableMoney"/> 입니다.
+		<button id="use">확인</button>
+		<button id="cancle">취소</button>
+	</div>
 </body>
 </html>
