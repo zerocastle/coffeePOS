@@ -16,7 +16,7 @@ public class UploadFile implements CommandProcess {
 
 	public UploadFile() {
 		// TODO Auto-generated constructor stub
-		System.out.println("파일 업로드 되냐 ㅅㅂ");
+		
 	}
 
 	@Override

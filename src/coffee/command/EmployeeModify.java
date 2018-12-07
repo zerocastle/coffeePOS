@@ -7,36 +7,32 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import coffee.bean.ClientDataBean;
+import coffee.bean.Employee;
+import coffee.bean.EmployeeDataBean;
 import coffee.commad.inter.CommandProcess;
 
-public class ClientModify implements CommandProcess {
-
-	public ClientModify() {
-		
-		System.out.println("고객 수정");
-
-	}
+public class EmployeeModify implements CommandProcess {
 
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
-
+		// TODO Auto-generated method stub
 		String go = "";
 		JSONObject personInfo = new JSONObject();
 		JSONArray array = new JSONArray();
-		String cId = request.getParameter("cId");
-		String cPhone = request.getParameter("cPhone");
-		System.out.println("modify 아이디 : " + cId);
-		System.out.println("modify 번호 : " + cPhone);
+		String eNum = request.getParameter("eNum");
+		String ePhone = request.getParameter("ePhone");
+		System.out.println("modify 아이디 : " + eNum);
+		System.out.println("modify 번호 : " + ePhone);
 		int signal = 0;
-		ClientDataBean bean = ClientDataBean.getInstance();
-		signal = bean.clientModify(cId, cPhone);
+		EmployeeDataBean bean = EmployeeDataBean.getINSTANCE();
+		signal = bean.employeeModify(eNum, ePhone);
 		System.out.println("modify signal : " + signal);
 		if (signal > 0) {
 			array.add(signal);
-			array.add(cId);
-			array.add(cPhone);
+			array.add(eNum);
+			array.add(ePhone);
 			personInfo.put("name", array);
-			request.setAttribute("clientModify", personInfo);
+			request.setAttribute("employeeModify", personInfo);
 			go = go + "/ajaxCome/test.jsp";
 		} else {
 			go = go + "/ele/managerClientView.jsp";
@@ -45,4 +41,5 @@ public class ClientModify implements CommandProcess {
 		System.out.println("modifyMember : " + personInfo.toString());
 		return go;
 	}
+
 }

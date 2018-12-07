@@ -22,11 +22,12 @@ $(document)
 								window = window.open("delete.jsp",
 										"delete.jsp", "width=300, height=360");
 							});
-//					$('#employeeModify').click(
-//							function() {
-//								window = window.open("delete.jsp",
-//										"delete.jsp", "width=300, height=360");
-//							})
+					// 사원수정
+					$('#employeeModify').click(
+							function() {
+								window = window.open("delete.jsp",
+										"delete.jsp", "width=300, height=360");
+							});
 
 					// 사원 등록
 
@@ -118,7 +119,34 @@ $(document)
 									}
 								})
 							})
+					$('#modifyMember').click(
+							function() {
+								var query = {
+									eNum : $('#eNum').val(),
+									ePhone : $('#ePhone').val()
+								};
 
+								$.ajax({
+									type : "POST",
+									url : "/coffeePOS/mng/employeeModify.do",
+									data : query,
+									success : function(data) {
+										var array = JSON.parse(data);
+										if (array.name[0] >= 1) {
+											alert(array.name[1] + "님 수정 완료");
+											$('#wrapper').html(
+													"<div>비밀번호 수정 완료</div>");
+											close();
+										} else {
+											alert("수정 실패");
+											close();
+										}
+									}
+								})
+							})
+					$('#cancle').click(function() {
+						close();
+					})
 				})
 function checkIt() {
 	state = true;

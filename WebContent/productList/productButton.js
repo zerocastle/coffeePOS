@@ -25,7 +25,13 @@ $(document).ready(
 
 			//고객 인서트
 			$('#payment').click(function() {
-				alert("결제 버튼");
-			})
+				
+				var query = {
+						
+				}
+				$.ajax({
+					
+				})
+			});
 
 		})

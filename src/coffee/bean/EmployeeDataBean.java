@@ -275,5 +275,44 @@ public class EmployeeDataBean {
 		return x;
 
 	}
+	
+	public int employeeModify(String eNum , String ePhone) {
+		// TODO Auto-generated method stub
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet set = null;
+		int x = 0;
+		String query = "update employee set ePhone = ? where cId = ?";
+
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, eNum);
+			pstmt.setString(2, ePhone);
+			x = pstmt.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+
+		}
+
+		finally {
+			try {
+				if (conn != null) {
+					conn.close();
+				}
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				if (set != null) {
+					set.close();
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return x;
+
+	}
 
 }

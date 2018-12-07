@@ -12,3 +12,5 @@ ${requestScope.productList}
 
 ${requestScope.clientSearchCounter}
 ${requestScope.deleteProductName}
+
+${requestScope.clientModify}

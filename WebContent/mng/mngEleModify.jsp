@@ -16,23 +16,23 @@ h1 {
 </style>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="eleButton.js" charset="UTF-8"></script>
+<script src="mngButton.js" charset="UTF-8"></script>
 	<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
 	<script src="../js/category.js"></script>
 </head>
 
 <body>
 	<div id="wrapper">
-		<h1>고객 정보 수정</h1>
+		<h1>사원 정보 수정</h1>
 		<table width="300" height="300" align="center">
 
 			 <tr>
-				<td>아이디</td>
-				<td><input id="mId" name="mId" type="text"></td>
+				<td>사번</td>
+				<td><input id="eNum" name="mId" type="text"></td>
 			</tr> 
 			<tr>
 				<td>전화번호</td>
-				<td><input id="mPhone" name="mPhone" type="text"></td>
+				<td><input id="ePhone" name="mPhone" type="text"></td>
 			</tr>
 			<!-- <tr>
 				<td>이름</td>

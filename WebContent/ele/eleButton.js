@@ -125,6 +125,34 @@ $(document).ready(
 					}
 				})
 			})
+			$('#modifyMember').click(function(){
+				var query={
+						cId : $('#mId').val(),
+						cPhone : $('#mPhone').val()
+				};
+				
+				$.ajax({
+					type : "POST",
+					url : "/coffeePOS/ele/clientModify.do",
+					data : query,
+					success : function(data){
+						var array = JSON.parse(data);
+						if(array.name[0] >= 1 ){
+							alert(array.name[1] + "님 수정 완료");
+							$('#wrapper').html("<div>비밀번호 수정 완료</div>");
+							close();
+						}else{
+							alert("수정 실패");
+							close();
+						}
+					}
+				})
+			})
+			$('#cancle').click(function(){
+				close();
+			})
+			
+			
 
 		})
 function checkIt() {

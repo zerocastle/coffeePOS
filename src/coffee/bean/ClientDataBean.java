@@ -301,7 +301,7 @@ public class ClientDataBean {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet set = null;
-		int x = -1;
+		int x = 0;
 		String query = "update client set cPhone = ? where cId = ?";
 
 		try {
@@ -310,10 +310,6 @@ public class ClientDataBean {
 			pstmt.setString(1, cPhone);
 			pstmt.setString(2, cId);
 			x = pstmt.executeUpdate();
-			if (x > 0) {
-				x = 1;
-			} else
-				x = 0;
 
 		} catch (Exception e) {
 			e.printStackTrace();
