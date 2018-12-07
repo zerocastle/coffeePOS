@@ -24,6 +24,21 @@
 <!-- Bootstrap -->
 <link href="../css/bootstrap.min.css" rel="stylesheet" media="screen">
 <link href="../css/pstyle.css" rel="stylesheet" type="text/css">
+
+<script>
+	function deleteProduct() {
+
+		$.ajax({
+			type : "POST",
+			url : "/coffeePOS/all/productList.do",
+			success : function() {
+				window = window.open("productDelete.jsp", "deleteProduct",
+						"width=1000,height=1000");
+			}
+		})
+
+	}
+</script>
 </head>
 <body>
 	<c:if test="${!empty sessionScope.loginSession2}">
@@ -90,7 +105,7 @@
 				<div class="textBox">
 					<input class="text" type="text" placeholder="Price" id="filePrice"
 						onkeyup="this.setAttribute('value', this.value);" name="filePrice" />
-					<label class="label"/>가격</label><label class="error"></label>
+					<label class="label" />가격</label><label class="error"></label>
 				</div>
 				<!-- 상품 카테고리 -->
 				<div class="textBox">
@@ -104,7 +119,7 @@
 				<input type="submit" id="upload" class="button2" value="등록" />
 				</form>
 
-				<button class="button2">삭제</button>
+				<button class="button2" onclick="deleteProduct()">삭제</button>
 
 			</div>
 		</div>
