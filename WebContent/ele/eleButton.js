@@ -125,6 +125,8 @@ $(document).ready(
 					}
 				})
 			})
+			
+			
 			$('#modifyMember').click(function(){
 				var query={
 						cId : $('#mId').val(),
@@ -141,7 +143,7 @@ $(document).ready(
 							alert(array.name[1] + "님 수정 완료");
 							$('#wrapper').html("<div>비밀번호 수정 완료</div>");
 							close();
-						}else{
+						}else if(array.name[0] < 1){
 							alert("수정 실패");
 							close();
 						}

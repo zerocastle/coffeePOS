@@ -7,6 +7,7 @@ ${requestScope.deleteMember}
 ${requestScope.insertEmployee}
 ${requestScope.clientUserCheck}
 ${requestScope.employeeUserCheck}
+${requestScope.employeeModify}
 
 ${requestScope.productList}
 

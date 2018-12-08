@@ -282,13 +282,13 @@ public class EmployeeDataBean {
 		PreparedStatement pstmt = null;
 		ResultSet set = null;
 		int x = 0;
-		String query = "update employee set ePhone = ? where cId = ?";
+		String query = "update employee set ePhone = ? where eNum = ?";
 
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(query);
-			pstmt.setString(1, eNum);
-			pstmt.setString(2, ePhone);
+			pstmt.setString(1, ePhone);
+			pstmt.setString(2, eNum);
 			x = pstmt.executeUpdate();
 
 		} catch (Exception e) {

@@ -25,8 +25,8 @@ $(document)
 					// 사원수정
 					$('#employeeModify').click(
 							function() {
-								window = window.open("delete.jsp",
-										"delete.jsp", "width=300, height=360");
+								window = window.open("mngEleModify.jsp",
+										"mngEleModify.jsp", "width=300, height=360");
 							});
 
 					// 사원 등록
@@ -137,7 +137,7 @@ $(document)
 											$('#wrapper').html(
 													"<div>비밀번호 수정 완료</div>");
 											close();
-										} else {
+										} else if(array.name[0] < 1){
 											alert("수정 실패");
 											close();
 										}

@@ -124,6 +124,15 @@
 		$('#clientStackPoint').val(stackPoint); 
 		
 	}
+	
+	/* function payMent(){
+		$.ajax({
+			var query={
+					
+			}
+		})
+	} */
+
 </script>
 
 </head>
@@ -188,7 +197,7 @@
 							<button class="btn btn-default" id="pointuse"
 								onclick="pointUse();">사용</button></td>
 					<tr>
-						<td>결제 금액 <input type="text" id="payMentMoney" width="8">
+						<td>결제 금액 <input type="text" id="payMentMoney" width="8" onclick="payMent()">
 						</td>
 					<tr>
 						<td>적립금

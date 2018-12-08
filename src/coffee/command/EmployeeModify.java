@@ -27,17 +27,13 @@ public class EmployeeModify implements CommandProcess {
 		EmployeeDataBean bean = EmployeeDataBean.getINSTANCE();
 		signal = bean.employeeModify(eNum, ePhone);
 		System.out.println("modify signal : " + signal);
-		if (signal > 0) {
-			array.add(signal);
-			array.add(eNum);
-			array.add(ePhone);
-			personInfo.put("name", array);
-			request.setAttribute("employeeModify", personInfo);
-			go = go + "/ajaxCome/test.jsp";
-		} else {
-			go = go + "/ele/managerClientView.jsp";
-			System.out.println("aa");
-		}
+
+		array.add(signal);
+		array.add(eNum);
+		array.add(ePhone);
+		personInfo.put("name", array);
+		request.setAttribute("employeeModify", personInfo);
+		go = go + "/ajaxCome/test.jsp";
 		System.out.println("modifyMember : " + personInfo.toString());
 		return go;
 	}
