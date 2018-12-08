@@ -18,3 +18,4 @@ ${requestScope.clientModify}
 ${requestScope.paymentSignal}
 
 ${requestScope.getPercent}
+${requestScope.percentP}

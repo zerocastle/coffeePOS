@@ -19,7 +19,9 @@
 <!--  link rel="stylesheet" href="css/ysFont.css"-->
 <!-- Bootstrap -->
 <link href="../css/bootstrap.min.css" rel="stylesheet" media="screen">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css" rel="stylesheet"/>
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css"
+	rel="stylesheet" />
 </head>
 <body>
 
@@ -64,27 +66,30 @@
 		<!-- 포인트 적립금 수정 -->
 		<script>
 			$(document).ready(function() {
-				var control = $('#show');
-				var img = control.find('>img');
-				var result = $('#img');
+				$('#button').click(function() {
+					var query = {
+						percentP : $('#send').val()
+					};
+					$.ajax({
+						type : "POST",
+						url : "/coffeePOS/manager/point/update.do",
+						data : query,
+						success : function(data) {
+							if(data > 0){
+								alert("수정 성공");
+							}
+							window.location.href="/coffeePOS/index.jsp";
+						}
+					})
 
-				 img.click(function() {
-					result.fadeIn(600);
-				}); 
-				img.click(function() {
-					result.fadeOut(600);
-				});
+				})
 			})
 		</script>
 		<div class="container">
 			<h1>적립률 변경</h1>
-			<div class="stuff">
-				<div class="textBox" id="box">
-					<diV id="show">
-						<img src="../images/brand.png" class="img-circle"
-							style="width: 500px; height: 250px;" id="push" />
-					</diV>
-				</div>
+			<div align="center">
+				<input type="text" id="send" placeholder="수정 %" />
+				<button class="btn" id="button">수정</button>
 			</div>
 		</div>
 	</c:if>
