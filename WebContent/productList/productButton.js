@@ -25,12 +25,23 @@ $(document).ready(
 
 			//고객 인서트
 			$('#payment').click(function() {
-				
+				alert("눌러지니??");
 				var query = {
-						
-				}
+					cId : $('#clientId').val(),
+					ptUsed : $('#pointPrepared').val(),
+					pointMoney : $('#clientStackPoint').val(),
+					pMoney : $('#payMentMoney').val()
+				};
 				$.ajax({
-					
+					type : "POST",
+					url : "/coffeePOS/product/payment/insert.do",
+					data : query,
+					success: function(data){
+						if(data == 1){
+							alert("결제 성공");
+						}
+						window.location.href="/coffeePOS/index.jsp";
+					}
 				})
 			});
 

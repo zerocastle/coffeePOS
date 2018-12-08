@@ -62,6 +62,7 @@ h1 {
 					success : function() {
 						window.opener.$('#clientInfo').val($('#clientName').val());
 						window.opener.$('#clientPoint').val($('#availableMoney').val());
+						window.opener.$('#clientId').val($('#cName').val()); 
 						close();
 					}
 				

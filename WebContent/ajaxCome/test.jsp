@@ -15,3 +15,4 @@ ${requestScope.clientSearchCounter}
 ${requestScope.deleteProductName}
 
 ${requestScope.clientModify}
+${requestScope.paymentSignal}

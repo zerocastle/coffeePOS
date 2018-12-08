@@ -89,7 +89,7 @@
 	display: inline-block;
 }
 </style>
-<script src="productList/productButton.js"></script>
+<script src="productList/productButton.js" charset="UTF-8"></script>
 <script>
 	function search(value) {
 
@@ -215,7 +215,7 @@
 					<button class="btn btn-large" id="clePointSearch">조회</button>
 					<div class="c-1-1">
 						<input type="text" id="clientInfo">님 의 사용 가능한 적립금은 <input
-							type="text" id="clientPoint" />
+							type="text" id="clientPoint" /><input type="text" id="clientId" style="color : brown;" />
 					</div>
 				</div>
 				<div class="c-2">

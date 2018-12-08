@@ -16,9 +16,9 @@ $(document).ready(function() {
 			data : query,
 			success : function(data) {
 				console.log(data);
-				alert(data)
+				
 				if (data == 1) {
-					alert("로그인성공");
+					
 					// locaiton.href="../index.jsp";
 					window.location.href = "clientChartView.jsp";
 					// window.location.href="ajaxCome/test.jsp";

@@ -14,6 +14,7 @@ $(document).ready(function() {
 			data : query,
 			success : function(data) {
 				console.log(data);
+				
 				if (data == 1) {
 					alert("로그인성공");
 					// locaiton.href="../index.jsp";
@@ -44,6 +45,7 @@ $(document).ready(function() {
 			data : query,
 			success : function(data) {
 				console.log(data);
+				
 				if (data == 1) {
 					alert("로그인성공");
 					// locaiton.href="../index.jsp";
