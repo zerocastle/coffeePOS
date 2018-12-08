@@ -16,3 +16,5 @@ ${requestScope.deleteProductName}
 
 ${requestScope.clientModify}
 ${requestScope.paymentSignal}
+
+${requestScope.getPercent}

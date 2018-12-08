@@ -343,7 +343,7 @@ public class ProductDataBean {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		int x = 0; 
+		int x = 0;
 		ArrayList<Product> productList = new ArrayList<Product>();
 		Product product = null;
 		String query = "delete from product where pName = ?";
@@ -372,6 +372,46 @@ public class ProductDataBean {
 		}
 		System.out.println("상품 리스트 삭제 ");
 		return x;
+
+	}
+	
+	//이런 ajax로 뽑아오자
+
+	public float getPercent() {
+		// TODO Auto-generated method stub
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		String query = "select percentP from category";
+		float f = 0.0F;
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(query);
+
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				f = rs.getFloat("percentP");
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				if (conn != null) {
+					conn.close();
+				}
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				if (rs != null) {
+					rs.close();
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return f;
 
 	}
 

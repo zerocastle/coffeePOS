@@ -112,26 +112,26 @@
 		})
 
 	}
-
+	var percent;
 	function pointUse() {
+		// 값 가지고옴 ...		
+		$.ajax({
+			type:"POST",
+			url : "/coffeePOS/product/get/percent.do",
+			success : function(data){
+				percent = Number(data);
+			}
+		})
 		var totalMoney = $('#totalMoney').val();
 		var clientPoint = $('#pointPrepared').val();
 
 		var payMentMoney = totalMoney - clientPoint;
-		var stackPoint = Number(payMentMoney)* 0.1;
-		alert(stackPoint);
+		var stackPoint = Number(payMentMoney)* percent;
+		alert(percent + "% 만큼 적립금이 쌓입니다.");
 		$('#payMentMoney').val(payMentMoney);
 		$('#clientStackPoint').val(stackPoint); 
 		
 	}
-	
-	/* function payMent(){
-		$.ajax({
-			var query={
-					
-			}
-		})
-	} */
 
 </script>
 
