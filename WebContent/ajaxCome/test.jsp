@@ -21,3 +21,4 @@ ${requestScope.getPercent}
 ${requestScope.percentP}
 
 ${requestScope.availablePoint}
+${requestScope.mlist}

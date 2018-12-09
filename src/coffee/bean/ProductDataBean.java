@@ -10,6 +10,9 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
 import coffee.command.product.ProductCounterAction;
 
 public class ProductDataBean {
@@ -413,6 +416,33 @@ public class ProductDataBean {
 		}
 		return f;
 
+	}
+
+	public JSONArray checkMonthSum() {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		JSONArray jsonArray = new JSONArray();
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement("select date_format(pDate, '%y-%m-%d') as mth, sum(pMoney) as sumP from payment group by mth;");
+			rs=pstmt.executeQuery();
+			
+			while(rs.next()) {		
+			     JSONObject jsonObject = new JSONObject();
+				 jsonObject.put("mth1",rs.getString("mth"));
+				 jsonObject.put("total",rs.getInt("sumP"));
+				 jsonArray.add(jsonObject);
+			}
+		}catch(Exception ex) {
+			ex.printStackTrace();
+		}finally {
+			if(rs!=null) { try {rs.close();} catch(SQLException sqle) {}}
+			if(pstmt!=null) { try {pstmt.close();} catch(SQLException sqle) {}}
+			if(conn!=null) { try {conn.close();} catch(SQLException sqle) {}}
+		}
+		return jsonArray;
 	}
 
 }

@@ -9,7 +9,6 @@
 	content="width = device-width, initial-scale = 1.0">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="eleButton.js"></script>
 <script src="../js/category.js"></script>
 <script src="../js/movingContent.js" charset="UTF-8"></script>
 <link href="../css/bootstrap-responsive.css" rel="stylesheet">
@@ -17,41 +16,51 @@
 <!--  link rel="stylesheet" href="css/ysFont.css"-->
 <!-- Bootstrap -->
 <link href="../css/bootstrap.min.css" rel="stylesheet" media="screen">
+<link rel="stylesheet"
+	href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<script
+	src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+<script
+	src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
 
 
 <script type="text/javascript"
 	src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
-      google.charts.load('current', {'packages':['corechart']});
-      google.charts.setOnLoadCallback(drawChart);
+	var a;
+	$(document).ready(function() {
 
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['월', '매출액'],
-          ['1',  1000],
-          ['2',  1170],
-          ['3',  660],
-          ['4',  1030],
-          ['5',  1030],
-          ['6',  1030],
-          ['7',  1030],
-          ['8',  1030],
-          ['9',  1030],
-          ['10',  1030],
-          ['11',  1030],
-          ['12',  100000],
-        ]);
+		$.ajax({
+			type : "POST",
+			url : "/coffeePOS/manager/getChartList.do",
+			async : false,
+			success : function(data) {
 
-        var options = {
-          title: '월별 매출액',
-          hAxis: {title: '월',  titleTextStyle: {color: '#333'}},
-          vAxis: {minValue: 0}
-        };
+				a = JSON.parse(data);
 
-        var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
-        chart.draw(data, options);
-      }
-    </script>
+			}
+		})
+		alert(a);
+		var labels = new Array();
+		var data = new Array();
+		new Morris.Line({
+			//↓---필수 값(무조건 있어야 함)----↓
+			element : 'lineChart', //div id값이 lineChart인 곳에 차트를 그린다.
+			data : a,
+			xkey : 'mth1',
+			ykeys : [ 'total' ],
+			labels : [ '총 매출' ],
+			//↑---필수 값(무조건 있어야 함)----↑
+			lineColors : [ '#5F735E' ],
+			pointSize : 10
+		});
+
+	});
+</script>
+
+
+
 </head>
 <body>
 	<c:if test="${!empty sessionScope.loginSession2}">
@@ -92,7 +101,10 @@
 			</div>
 		</div>
 
-		<div id="chart_div" style="width: 100%; height: 500px;"></div>
+		<div id="hourchart">
+			<h1>시간대별 매출</h1>
+			<div id="lineChart"></div>
+		</div>
 	</c:if>
 </body>
 </html>
