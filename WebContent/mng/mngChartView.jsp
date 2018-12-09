@@ -41,7 +41,6 @@
 
 			}
 		})
-		alert(a);
 		var labels = new Array();
 		var data = new Array();
 		new Morris.Line({
