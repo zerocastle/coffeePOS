@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 
@@ -107,7 +108,7 @@ public class PayMentDataBean {
 				e.printStackTrace();
 			}
 			this.pointListAction(pCode, cId, pointMoney); // 호출 인서트
-			this.updateUserPoint(cId, pMoney, ptUsed,pointMoney); // 클라이언트 업데이트
+			this.updateUserPoint(cId, pMoney, ptUsed, pointMoney); // 클라이언트 업데이트
 		}
 
 		return x;
@@ -148,7 +149,7 @@ public class PayMentDataBean {
 
 	}
 
-	public void updateUserPoint(String cId, int pMoney, int ptUsed,int pointMoney) {
+	public void updateUserPoint(String cId, int pMoney, int ptUsed, int pointMoney) {
 		// TODO Auto-generated method stub
 		System.out.println("업데이트 유저 들어오니??");
 		Connection conn = null;
@@ -189,6 +190,7 @@ public class PayMentDataBean {
 		System.out.println("업데이트 끝냈니");
 	}
 
+	// 포인트 머니 , 총 주문 금액 넘겨주는 역활
 	private int[] getPointTotalPayMentMoney(String cId) {
 		// TODO Auto-generated method stub
 		Connection conn = null;
@@ -256,7 +258,62 @@ public class PayMentDataBean {
 				e.printStackTrace();
 			}
 		}
-		return x ;
+		return x;
+	}
+
+	// 포인트 리스트 불러오기
+	public ArrayList<PayMent> getPointList(String cId) {
+		// TODO Auto-generated method stub
+
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		PayMent object = null;
+		ArrayList<PayMent> payMent = new ArrayList<PayMent>();
+
+		String query = "select pCode,pDate,pMoney,ptUsed from payment where cId = ?";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, cId);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				String pCode = rs.getString("pCode");
+				Timestamp pDate = rs.getTimestamp("pDate");
+				int pMoney = rs.getInt("pMoney");
+				int ptUsed = rs.getInt("ptUsed");
+				object = new PayMent();
+				object.setpCOde(pCode);
+				object.setpDate(pDate);
+				object.setpMoney(pMoney);
+				object.setPtUsed(ptUsed);
+
+				payMent.add(object);
+
+//				payMent.add()
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		finally {
+			try {
+				if (conn != null) {
+					conn.close();
+				}
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				if (rs != null) {
+					rs.close();
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return payMent;
+
 	}
 
 }

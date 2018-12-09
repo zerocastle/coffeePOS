@@ -1,10 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <style>
 /* h2 {
 	text-align: center;
@@ -43,9 +47,25 @@ tbody tr:nth-child(2n) {
 	background-color: #fbfbfb;
 }
 </style>
+<script>
+	$(function() {
+		var query = {
+			cId : "${clientLogincId}"
+		};
+		$.ajax({
+			type : "POST",
+			url : "/coffeePOS/clt/show/list.do",
+			data : query,
+			success : function(data) {
+
+			}
+		})
+	})
+</script>
 </head>
 <h2>
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 님 <br>사용가능 적립금 :
+	<span style="color: brown;">${sessionScope.clientLogincId }</span> 님 <br>사용가능
+	적립금 :
 </h2>
 <body>
 	<table width="500" height="50" border="1" rules="none">
@@ -59,7 +79,8 @@ tbody tr:nth-child(2n) {
 		</colgroup>
 		<thead>
 			<tr>
-				<th></th>
+				<th>순번</th>
+				<th>결제코드</th>
 				<th>날짜</th>
 				<th>결제금액</th>
 				<th>적립금액</th>
@@ -67,6 +88,7 @@ tbody tr:nth-child(2n) {
 			</tr>
 		</thead>
 	</table>
+
 	<div>
 		<table width="485" height="350" align="center" border="1" rules="none">
 			<colgroup>
@@ -77,55 +99,17 @@ tbody tr:nth-child(2n) {
 				<col width="20%">
 			</colgroup>
 			<tbody>
-				<tr>
-					<td></td>
-					<td>181129</td>
-					<td>1000</td>
-					<td>100</td>
-					<td>0</td>
-				</tr>
-				<tr>
-					<td></td>
-					<td>1129</td>
-					<td>1000</td>
-					<td>100</td>
-					<td>0</td>
-				</tr>
-				<tr>
-					<td></td>
-					<td>1129</td>
-					<td>1000</td>
-					<td>100</td>
-					<td>0</td>
-				</tr>
-				<tr>
-					<td></td>
-					<td>1129</td>
-					<td>1000</td>
-					<td>100</td>
-					<td>0</td>
-				</tr>
-				<tr>
-					<td></td>
-					<td>1129</td>
-					<td>1000</td>
-					<td>100</td>
-					<td>0</td>
-				</tr>
-				<tr>
-					<td></td>
-					<td>1129</td>
-					<td>1000</td>
-					<td>100</td>
-					<td>0</td>
-				</tr>
-				<tr>
-					<td></td>
-					<td>1129</td>
-					<td>1000</td>
-					<td>100</td>
-					<td>0</td>
-				</tr>
+				<c:forEach items="${sessionScope.clientInformationList}" var="item">
+					<c:set var="counter" value="${counter + 1 }"></c:set>
+					<tr>
+						<td><c:out value="${counter}"></c:out></td>
+						<td>${item.getpCOde()}</td>
+						<td>${item.getpDate()}</td>
+						<td>${item.getPtUsed()}</td>
+						<td>${item.getpMoney()}</td>
+						</tr>
+
+				</c:forEach>
 			</tbody>
 		</table>
 	</div>
