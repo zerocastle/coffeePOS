@@ -17,6 +17,7 @@ $(document).ready(function() {
 			success : function(data) {
 				console.log(data);
 				if (data == 1) {
+					alert("로그인 성공");
 					window.location.href = "/coffeePOS/clt/clientChartView.jsp";
 					
 				} else if (data == -1) {

@@ -272,7 +272,7 @@ public class PayMentDataBean {
 		PayMent object = null;
 		ArrayList<PayMent> payMent = new ArrayList<PayMent>();
 
-		String query = "select pCode,pDate,pMoney,ptUsed from payment where cId = ?";
+		String query = "select pCode,pDate,pMoney,ptUsed from payment where cId = ? order by pDate desc";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(query);

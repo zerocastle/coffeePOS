@@ -48,6 +48,8 @@ tbody tr:nth-child(2n) {
 }
 </style>
 <script>
+	var availablePoint;
+	var status = true;
 	$(function() {
 		var query = {
 			cId : "${clientLogincId}"
@@ -57,61 +59,95 @@ tbody tr:nth-child(2n) {
 			url : "/coffeePOS/clt/show/list.do",
 			data : query,
 			success : function(data) {
-
+				
 			}
+		})
+
+		var qeury = {
+			cId : "${clientLogincId}"
+		};
+		$.ajax({
+			type : "POST",
+			url : "/coffeePOS/clt/get/available/point.do",
+			data : query,
+			success : function(data) {
+				var array = JSON.parse(data);
+				availablePoint = array.availablePoint[0];
+				$('#hereInsert').html(availablePoint);
+			}
+
+		})
+
+		$('#logout').click(function() {
+			$.ajax({
+				type : "POST",
+				url : "/coffeePOS/clt/logout.do",
+				success : function() {
+					alert("로그아웃 하셨습니다.");
+					window.location.href = "/coffeePOS/clt/loginView.jsp";
+				}
+			})
 		})
 	})
 </script>
 </head>
-<h2>
-	<span style="color: brown;">${sessionScope.clientLogincId }</span> 님 <br>사용가능
-	적립금 :
-</h2>
+
 <body>
-	<table width="500" height="50" border="1" rules="none">
-		<colgroup>
-
-			<col width="5%">
-			<col width="15%">
-			<col width="20%">
-			<col width="18%">
-			<col width="21%">
-		</colgroup>
-		<thead>
-			<tr>
-				<th>순번</th>
-				<th>결제코드</th>
-				<th>날짜</th>
-				<th>결제금액</th>
-				<th>적립금액</th>
-				<th>사용금액</th>
-			</tr>
-		</thead>
-	</table>
-
-	<div>
-		<table width="485" height="350" align="center" border="1" rules="none">
+	<c:if test="${!empty sessionScope.clientLogincId }">
+		<h2>
+			<span style="color: brown;">${sessionScope.clientLogincId }</span> 님
+			<br>사용가능 적립금 :<span id="hereInsert"></span>
+			<button class="btn" id="logout">로그아웃</button>
+		</h2>
+		<table width="500" height="50" border="1" rules="none">
 			<colgroup>
+
 				<col width="5%">
+				<col width="15%">
+				<col width="20%">
 				<col width="18%">
-				<col width="20%">
-				<col width="20%">
-				<col width="20%">
+				<col width="21%">
 			</colgroup>
-			<tbody>
-				<c:forEach items="${sessionScope.clientInformationList}" var="item">
-					<c:set var="counter" value="${counter + 1 }"></c:set>
-					<tr>
-						<td><c:out value="${counter}"></c:out></td>
-						<td>${item.getpCOde()}</td>
-						<td>${item.getpDate()}</td>
-						<td>${item.getPtUsed()}</td>
-						<td>${item.getpMoney()}</td>
+			<thead>
+				<tr>
+					<th>순번</th>
+					<th>결제코드</th>
+					<th>날짜</th>
+					<th>결제금액</th>
+					<th>적립금액</th>
+					<th>사용금액</th>
+				</tr>
+			</thead>
+		</table>
+
+		<div>
+			<table width="485" height="350" align="center" border="1"
+				rules="none">
+				<colgroup>
+					<col width="5%">
+					<col width="18%">
+					<col width="20%">
+					<col width="20%">
+					<col width="20%">
+				</colgroup>
+				<tbody>
+					<c:forEach items="${sessionScope.clientInformationList}" var="item">
+						<c:set var="counter" value="${counter + 1 }"></c:set>
+						<tr>
+							<td><c:out value="${counter}"></c:out></td>
+							<td>${item.getpCOde()}</td>
+							<td>${item.getpDate()}</td>
+							<td>${item.getPtUsed()}</td>
+							<td>${item.getpMoney()}</td>
 						</tr>
 
-				</c:forEach>
-			</tbody>
-		</table>
-	</div>
+					</c:forEach>
+				</tbody>
+			</table>
+		</div>
+	</c:if>
+	<c:if test="${empty sessionScope.clientLogincId }">
+		<div><jsp:forward page="loginView.jsp"></jsp:forward> </div>
+	</c:if>
 </body>
 </html>

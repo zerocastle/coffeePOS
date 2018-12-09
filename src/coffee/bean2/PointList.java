@@ -2,7 +2,7 @@ package coffee.bean2;
 
 public class PointList {
 
-	private String pCode;
+	private int pCode;
 	private String cId;
 	private int pointMoney;
 
@@ -10,11 +10,11 @@ public class PointList {
 		// TODO Auto-generated constructor stub
 	}
 
-	public String getpCode() {
+	public int getpCode() {
 		return pCode;
 	}
 
-	public void setpCode(int String) {
+	public void setpCode(int pCode) {
 		this.pCode = pCode;
 	}
 
@@ -34,7 +34,7 @@ public class PointList {
 		this.pointMoney = pointMoney;
 	}
 
-	public PointList(String pCode, String cId, int pointMoney) {
+	public PointList(int pCode, String cId, int pointMoney) {
 		super();
 		this.pCode = pCode;
 		this.cId = cId;

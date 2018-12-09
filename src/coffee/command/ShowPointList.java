@@ -29,6 +29,7 @@ public class ShowPointList implements CommandProcess {
 //		request.setAttribute("clientInformationList", list);
 		HttpSession session = request.getSession();
 		session.setAttribute("clientInformationList", list);
+		
 		return "/clt/clientChartView.jsp";
 	}
 

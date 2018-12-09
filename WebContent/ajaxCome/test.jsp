@@ -19,3 +19,5 @@ ${requestScope.paymentSignal}
 
 ${requestScope.getPercent}
 ${requestScope.percentP}
+
+${requestScope.availablePoint}

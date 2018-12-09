@@ -239,6 +239,7 @@ public class ClientDataBean {
 		return x;
 
 	}
+	// 결제전 고객 정보 들고 오기
 
 	public String[] searchcId(String cId) {
 		// TODO Auto-generated method stub
@@ -294,9 +295,8 @@ public class ClientDataBean {
 		}
 		return str;
 	}
-	
-	
-	//클라이언트 수정
+
+	// 클라이언트 수정
 	public int clientModify(String cId, String cPhone) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -333,5 +333,46 @@ public class ClientDataBean {
 		}
 		return x;
 	}
-	
+
+	// 사용 가능
+	public int getAvailablePoint(String cId) {
+		// TODO Auto-generated method stub
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		int cPoint = 0;
+		String query = "select cPoint from client where cId = ?";
+
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, cId);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				cPoint = rs.getInt("cPoint");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+
+		}
+
+		finally {
+			try {
+				if (conn != null) {
+					conn.close();
+				}
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				if (rs != null) {
+					rs.close();
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return cPoint;
+	}
+
 }

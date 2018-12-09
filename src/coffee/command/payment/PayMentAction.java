@@ -17,8 +17,13 @@ public class PayMentAction implements CommandProcess {
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 		// TODO Auto-generated method stub
 		PayMentDataBean bean = PayMentDataBean.getINSTANCE();
-
-		int ptUsed = Integer.parseInt(request.getParameter("ptUsed"));
+		int ptUsed = 0;
+		try {
+			ptUsed = Integer.parseInt(request.getParameter("ptUsed"));
+		} catch (Exception e) {
+			e.printStackTrace();
+			ptUsed = 0;
+		}
 		int pMoney = Integer.parseInt(request.getParameter("pMoney"));
 		String cId = request.getParameter("cId");
 		int pointMoney = Integer.parseInt(request.getParameter("pointMoney"));
