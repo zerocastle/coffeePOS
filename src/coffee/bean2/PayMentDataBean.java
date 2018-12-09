@@ -107,7 +107,7 @@ public class PayMentDataBean {
 				e.printStackTrace();
 			}
 			this.pointListAction(pCode, cId, pointMoney); // 호출 인서트
-			this.updateUserPoint(cId, pMoney, ptUsed); // 클라이언트 업데이트
+			this.updateUserPoint(cId, pMoney, ptUsed,pointMoney); // 클라이언트 업데이트
 		}
 
 		return x;
@@ -148,17 +148,17 @@ public class PayMentDataBean {
 
 	}
 
-	public void updateUserPoint(String cId, int pMoney, int ptUsed) {
+	public void updateUserPoint(String cId, int pMoney, int ptUsed,int pointMoney) {
 		// TODO Auto-generated method stub
 		System.out.println("업데이트 유저 들어오니??");
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		int[] array = getPointTotalPayMentMoney(cId); // select 해온다 .
-		int cPointTemp = array[0];
-		int totalPointTemp = array[1];
+		int cPointTemp = array[0]; // 포인트 금액
+		int totalPointTemp = array[1]; // 총 주문 금액
 
-		int cPoint = cPointTemp - ptUsed;
+		int cPoint = pointMoney + (cPointTemp - ptUsed);
 		int totalPoint = totalPointTemp + pMoney;
 		System.out.println("업데이트 : cPoint = " + cPoint);
 		System.out.println("업데이트 : totalPoint = " + totalPoint);
