@@ -114,7 +114,7 @@ footer {
 		test="${(empty sessionScope.loginSession) and (empty sessionScope.loginSession2)}">
 		<!-- 단순 이미지 -->
 		<div align="center">
-			<img src="images/login_coffee01.jpg" alt="커피사진" width="450"
+			<img src="images/test.gif" alt="커피사진" width="450"
 				height="350">
 		</div>
 		<!-- 로그인 선택 박스 -->
