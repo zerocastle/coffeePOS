@@ -25,12 +25,12 @@ $(document).ready(
 
 			//고객 인서트
 			$('#payment').click(function() {
-				alert("눌러지니??");
 				var query = {
 					cId : $('#clientId').val(),
 					ptUsed : $('#pointPrepared').val(),
 					pointMoney : $('#clientStackPoint').val(),
-					pMoney : $('#payMentMoney').val()
+					pMoney : $('#payMentMoney').val(),
+					totalMoney : $('#totalMoney').val() // 이 녀석은 고객정보가 없을때 비회원 로그인을 처리 해주기 위해서 만들었다
 				};
 				$.ajax({
 					type : "POST",
@@ -39,6 +39,8 @@ $(document).ready(
 					success: function(data){
 						if(data == 1){
 							alert("결제 성공");
+						}else{
+							alert("결제 실패");
 						}
 						window.location.href="/coffeePOS/index.jsp";
 					}

@@ -73,6 +73,10 @@ public class PayMentDataBean {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
+		System.out.println("넘어 오는 고객 아이디 값 : " + cId);
+		if (cId.equals("")) {
+			cId = "customer";
+		}
 		System.out.println("결제 인서트 부분");
 		Random r = new Random();
 		int random = r.nextInt(10000);
@@ -119,9 +123,13 @@ public class PayMentDataBean {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
+		System.out.println("포인트 부분 넘어 오는 고객 아이디 값 : " + cId);
 		System.out.println("고객 포인트 인서트 부분");
 		String query = "insert into pointlist values(?,?,?)";
 		int x = 0;
+		if (cId.equals("")) {
+			cId = "customer";
+		}
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(query);
