@@ -86,7 +86,7 @@
 			})
 		</script>
 		<div class="container">
-			<h1>적립률 변경</h1>
+			<h1>적립율 변경</h1>
 			<div align="center">
 				<input type="text" id="send" placeholder="수정 %" />
 				<button class="btn" id="button">수정</button>

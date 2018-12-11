@@ -19,7 +19,7 @@ public class PayMentAction implements CommandProcess {
 		PayMentDataBean bean = PayMentDataBean.getINSTANCE();
 		int ptUsed = 0;
 		int pMoney = 0;
-		int pointMoney = 0;
+		float pointMoney = 0.0F;
 		int totalMoney = 0;
 
 		String ptUsedTemp = request.getParameter("ptUsed");
@@ -45,7 +45,7 @@ public class PayMentAction implements CommandProcess {
 		if (pointMoneyTemp.equals("")) {
 			pointMoney = 0;
 		} else
-			pointMoney = Integer.parseInt(request.getParameter("pointMoney"));
+			pointMoney = Float.parseFloat(request.getParameter("pointMoney")); // 실수형
 		String cId = request.getParameter("cId");
 		System.out.println("exception : " + cId);
 		if (cId.equals("")) {

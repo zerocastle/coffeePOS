@@ -101,7 +101,7 @@
 		</div>
 
 		<div id="hourchart">
-			<h1>시간대별 매출</h1>
+			<h1>월별 매출</h1>
 			<div id="lineChart"></div>
 		</div>
 	</c:if>

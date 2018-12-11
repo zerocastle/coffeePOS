@@ -67,7 +67,7 @@ public class PayMentDataBean {
 
 	}
 
-	public int payMentInsertAction(int ptUsed, int pMoney, String cId, int pointMoney) {
+	public int payMentInsertAction(int ptUsed, int pMoney, String cId, float pointMoney) {
 		// TODO Auto-generated method stub
 
 		Connection conn = null;
@@ -119,7 +119,7 @@ public class PayMentDataBean {
 
 	}
 
-	public void pointListAction(String pCode, String cId, int pointMoney) {
+	public void pointListAction(String pCode, String cId, float pointMoney) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -135,7 +135,7 @@ public class PayMentDataBean {
 			pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, pCode);
 			pstmt.setString(2, cId);
-			pstmt.setInt(3, pointMoney);
+			pstmt.setFloat(3, pointMoney);
 			x = pstmt.executeUpdate();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -157,7 +157,7 @@ public class PayMentDataBean {
 
 	}
 
-	public void updateUserPoint(String cId, int pMoney, int ptUsed, int pointMoney) {
+	public void updateUserPoint(String cId, int pMoney, int ptUsed, float pointMoney) {
 		// TODO Auto-generated method stub
 		System.out.println("업데이트 유저 들어오니??");
 		Connection conn = null;
@@ -167,7 +167,7 @@ public class PayMentDataBean {
 		int cPointTemp = array[0]; // 포인트 금액
 		int totalPointTemp = array[1]; // 총 주문 금액
 
-		int cPoint = pointMoney + (cPointTemp - ptUsed);
+		int cPoint = (int) (pointMoney + (cPointTemp - ptUsed));
 		int totalPoint = totalPointTemp + pMoney;
 		System.out.println("업데이트 : cPoint = " + cPoint);
 		System.out.println("업데이트 : totalPoint = " + totalPoint);
