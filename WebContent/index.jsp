@@ -110,6 +110,7 @@ footer {
 </script>
 </head>
 <body>
+<c:choose></c:choose>
 	<c:if
 		test="${(empty sessionScope.loginSession) and (empty sessionScope.loginSession2)}">
 		<!-- 단순 이미지 -->
